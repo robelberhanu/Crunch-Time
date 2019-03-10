@@ -1,0 +1,35 @@
+<!-- templates/registration/login.html -->
+{#TODO: Convert Robel's html file to this template#}
+{% load static %} {# generates absolute url of static files i.e. css,images etc #}
+
+{#<h2>Login</h2>#}
+{#<form method="post">#}
+{#  {% csrf_token %} {# For security reasons - used to prevent XSS attack #}
+{#  {{ form.as_p }} {# Forms contents are outputted between paragraph tags #}
+{#  <button type="submit">Login</button>#}
+{#</form>#}
+
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static "login/Styles.css" %}">
+</head>
+<body>
+<div class="loginbox">
+    <img src="{% static "login/index.png"%}" class="avatar">
+    <h1>Login Here</h1>
+    <form>
+        {% csrf_token %}
+        <p>Username</p>
+        <input type="text" name="" placeholder="Enter Username">
+        <p>Password</p>
+        <input type="password" name="" placeholder="Enter Password">
+        <input type="submit" name="" value="Login">
+        <a href="#">Lost your password?</a><br>
+
+    </form>
+
+</div>
+
+
+</body>
