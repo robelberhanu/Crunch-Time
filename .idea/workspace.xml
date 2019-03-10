@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49e62212-a237-44c4-9e71-f59bfd980c91" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/WSCSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WSCSite.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/login/Styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/login/Styles.css" afterDir="false" />
-    </list>
+    <list default="true" id="49e62212-a237-44c4-9e71-f59bfd980c91" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +94,11 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="registration" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Crunch-Time" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Crunch-Time" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -173,12 +173,12 @@
       <workItem from="1551989850255" duration="6896000" />
       <workItem from="1552213898342" duration="2733000" />
       <workItem from="1552230263423" duration="523000" />
-      <workItem from="1552245098521" duration="4598000" />
+      <workItem from="1552245098521" duration="5198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14750000" />
+    <option name="totallyTimeSpent" value="15350000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
