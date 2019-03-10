@@ -1,7 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-
+    background: url("back-logo.2jpg.jpg");
+    background-color: black;
     background-size: cover;
     background-position: center;
     font-family: sans-serif;
