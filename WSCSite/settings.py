@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC' # change to right timezone
+TIME_ZONE = 'UTC'  # change to right timezone
 
 USE_I18N = True
 
@@ -125,3 +125,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# redirect for successful login
+# LOGIN_REDIRECT_URL = '/'
