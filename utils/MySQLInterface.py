@@ -4,8 +4,6 @@ import pymysql
 
 class MySQLInterface:
 
-    __myServer = None
-
     def __init__(self, sshArgumentsDict):
 
         self.__myServer = SSHTunnelForwarder(
