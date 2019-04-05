@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'message_board.apps.MessageBoardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,15 +85,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-    ,
-    'lamp': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database',
-        'USER': 's1748323',
-        'PASSWORD': 's1748323',
-        'HOST': '146.141.21.92',
-        'PORT': '22',
-    }
+    # ,
+    # 'lamp': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'database',
+    #     'USER': 's1748323',
+    #     'PASSWORD': 's1748323',
+    #     'HOST': '146.141.21.92',
+    #     'PORT': '22',
+    # }
 }
 
 

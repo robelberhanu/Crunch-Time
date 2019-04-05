@@ -18,15 +18,12 @@ from django.contrib import admin
 from django.template.backends import django
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
 
     path('message_board/', include('message_board.urls'))
-    # path corresponding to message_board page
-    # path('message_board/', views.MessageBoardView, name='messageBoardView')
 
     # path()
 
