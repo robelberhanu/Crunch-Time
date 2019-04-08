@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.MessageBoard, name='messageBoardView'),
+    path('', views.messageBoard, name='messageBoardView'),
     path('messages.html', views.Messages)
     # arguments for path function -
     # route (required)
