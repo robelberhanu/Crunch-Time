@@ -6,3 +6,5 @@ from django.shortcuts import render
 def MessageBoard(request):
     return render(request, 'message_board/message_board.html')
 
+def Messages(request):
+    return render(request, 'Messages/messages.html')

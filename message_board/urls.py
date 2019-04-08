@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.MessageBoard, name='messageBoardView'),
+    path('messages.html', views.Messages)
     # arguments for path function -
     # route (required)
     # view (required)
