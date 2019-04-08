@@ -1,11 +1,13 @@
-from django.test import TestCase
-from django.test import SimpleTestCase
-# Create your tests here.
-#from message_board import views
+from django.test import TestCase, SimpleTestCase
+from django.contrib.auth.models import User
+from message_board import views
+from . import models
 
-class MessageBoardTests(TestCase):
+class DatabaseTests(TestCase):
 
-    def test_message_board_validity(self):
-        response = self.client.get('/')
-        self.assertContains(response, '<title>Message Board</title>')
+    def test_user(self):
+        user = User.objects.first()
+        self.assertEqual(user, None)
+
+
 
