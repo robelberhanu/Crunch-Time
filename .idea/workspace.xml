@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="49e62212-a237-44c4-9e71-f59bfd980c91" name="Default Changelist" comment="1) Restructured file structure.&#10;2) Create Django 'app' for message board - i.e. just a file structure.&#10;3) Added functionality for message_board to be viewable on site.&#10;4) Added witsldapauth.py which is a LDAP authorisation template.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WSCSite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/WSCSite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message_board/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_board/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,14 +59,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/message_board/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="141">
               <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="102">
+                <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -157,10 +168,11 @@
         <option value="$PROJECT_DIR$/message_board/views.py" />
         <option value="$PROJECT_DIR$/message_board/tests.py" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -272,12 +284,12 @@
       <workItem from="1554460533525" duration="2417000" />
       <workItem from="1554473759776" duration="3821000" />
       <workItem from="1554555288044" duration="2591000" />
-      <workItem from="1554703062487" duration="6309000" />
+      <workItem from="1554703062487" duration="8331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62063000" />
+    <option name="totallyTimeSpent" value="64085000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -289,14 +301,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="676" y="0" width="697" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4991119" visible="true" weight="0.33281004" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4991119" visible="true" weight="0.1603631" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5008881" side_tool="true" weight="0.3222672" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27740863" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27740863" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -305,7 +318,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49959514" weight="0.3285968" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5023548" side_tool="true" weight="0.79568106" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4976452" weight="0.79568106" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4976452" visible="true" weight="0.4680851" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -480,11 +493,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/message_board/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="141">
           <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="102">
+            <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
