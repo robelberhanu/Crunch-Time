@@ -3,6 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def MessageBoard(request):
+def messageBoard(request):
     return render(request, 'message_board/message_board.html')
 
