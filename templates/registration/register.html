@@ -33,12 +33,24 @@
       <p>
         {{ field.label_tag }}<br>
 {#        {{ field |add_class:'form-control'}}#} {# add_class:'className' - same as class="className"#}
+    <div class = "loginbox">
+    <br method="post">
+    {% csrf_token %}
+    <img src="{% static "login/index.png"%}" class="avatar">
+    {# Code below just shows all the associated sign up fields, i.e. password username etc #}
+    <h1>Register User</h1>
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+    {#        {{ field |add_class:'form-control'}}#} {# add_class:'className' - same as class="className"#}
+
         {# TODO - Change below {{ field }} to above code with correct css #}
         {{ field }}
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>
         {% endfor %}
       </p>
+    {% endfor %}
     {% endfor %}
     <button type="submit">Sign up</button>
     <br>
@@ -52,5 +64,5 @@
     {% else %}
         <strong>No users have been created yet :/</strong> {# I don't think this will ever show#}
     {% endif %}
-  </form>
+    {#        <strong>No users have been created yet :/</strong> {# I don't think this will ever show#}
 {% endblock %}
