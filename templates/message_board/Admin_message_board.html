@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>
-            Message-Board
+           Admin Message-Board
         </title>
         <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
     </head>
@@ -12,18 +12,38 @@
     <body>
        <!-- <div class="main-div"> -->
         <div class="nav">
-            <a  href='messages.html' ><img class="logo" src={%  static "login/index.png" %}></a>
-            <a class="profile" href='messages.html'>
+            <a  href='Main_Message_Board.html' ><img class="logo" src={%  static "login/index.png" %}></a>
+            <a class="profile" href='Main_Message_Board.html'>
                  <img  class="profile_pic" src="login/user.png">
             </a>
         </div>
         <div class="content">
             <div class="label">
+                <center>
                 <strong><p>
-                            Message Board
+                          Admin Message Board
                         </p>
                 </strong>
+                    </center>
             </div>
+
+             <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="./Manage_Users.html">Manage Users</a>
+                <a href="./Manage_Clubs.html">Manage Clubs</a>
+
+
+
+              </div>
+
+              <div id="main">
+                 <ul>
+                    <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+                    <li><a href="./Main_Message_Board.html">Main Board</a></li>
+                    <li><a href="./Manage_Users.html">Customise Users</a></li>
+                    <li><a href="./Manage_Clubs.html">Customise Clubs</a></li>
+                   </ul>
+                </div>
             <table>
                     <tr>
                     <th>Subject</th>
@@ -78,6 +98,22 @@
                   </table>
 
         </div>
-       <!-- </div> -->
+         <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+              document.getElementById("main").style.marginLeft = "250px";
+              document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("main").style.marginLeft= "0";
+              document.body.style.backgroundColor = "white";
+            }
+
+
+            </script>
+
+
     </body>
 </html>

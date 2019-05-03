@@ -1,0 +1,160 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manage Users</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="{% static "login/Styles2.css" %}">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+
+        {#This Function Prompts pop up to Add Clubs#}
+  $( function Add(){
+    var dialog, form,
+
+        emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+      name = $( "#name" ),
+      email = $( "#email" ),
+      password = $( "#password" ),
+      allFields = $( [] ).add( name ).add( email ).add( password ),
+      tips = $( ".validateTips" );
+
+    function addClub() {
+      var valid = true;
+
+       valid = valid && checkLength( name, "username", 3, 16 );
+      valid = valid && checkLength( email, "email", 6, 80 );
+      valid = valid && checkLength( password, "password", 5, 16 );
+
+      valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
+      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+
+      if ( valid ) {
+        $( "#users tbody" ).append( "<tr>" +
+          "<td>" + name.val() + "</td>" +
+          "<td>" + email.val() + "</td>" +
+          "<td>" + password.val() + "</td>" +
+        "</tr>" );
+        dialog.dialog( "close" );
+      }
+      return valid;
+    }
+
+    dialog = $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 400,
+      width: 350,
+      modal: true,
+      buttons: {
+        "Create Club": addClub,
+        Cancel: function addClub() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function addClub() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+
+    form = dialog.find( "form" ).on( "submit", function addClub( event ) {
+      event.preventDefault();
+      addClub();
+    });
+
+    $( "#create-Club" ).button().on( "click", function Add() {
+      dialog.dialog( "open" );
+    });
+  } );
+
+   {#This Function Prompts pop up to remove Clubs#}
+  $( function Remove(){
+    var dialog, form,
+
+        emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+      name = $( "#name" ),
+      email = $( "#email" ),
+      password = $( "#password" ),
+      allFields = $( [] ).add( name ).add( email ).add( password ),
+      tips = $( ".validateTips" );
+
+    function RemoveClub() {
+      var valid = true;
+
+      {# valid = valid && checkLength( name, "username", 3, 16 );#}
+      {#valid = valid && checkLength( email, "email", 6, 80 );#}
+      {#valid = valid && checkLength( password, "password", 5, 16 );#}
+      {##}
+      {#valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );#}
+      {#valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );#}
+      {#valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );#}
+
+      if ( valid ) {
+        $( "#users tbody" ).append( "<tr>" +
+          "<td>" + name.val() + "</td>" +
+          "<td>" + email.val() + "</td>" +
+          "<td>" + password.val() + "</td>" +
+        "</tr>" );
+        dialog.dialog( "close" );
+      }
+      return valid;
+    }
+
+    dialog = $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 400,
+      width: 350,
+      modal: true,
+      buttons: {
+        "Remove Club": RemoveClub,
+        Cancel: function RemoveClub() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function RemoveClub() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+
+    form = dialog.find( "form" ).on( "submit", function RemoveClub( event ) {
+      event.preventDefault();
+      RemoveClub();
+    });
+
+    $( "#remove-Club" ).button().on( "click", function Remove() {
+      dialog.dialog( "open" );
+    });
+  } );
+  </script>
+</head>
+<body>
+
+<div id="dialog-form" title="Manage Clubs">
+  <p class="validateTips">All form fields are required.</p>
+
+  <form>
+    <fieldset>
+      <label for="name">Club Name</label>
+      <input type="text" name="name" id="name" value="Basket Ball" class="text ui-widget-content ui-corner-all">
+      <label for="Attribute"> Club Attribute</label>
+      <input type="text" name="email" id="email" value="Attribute" class="text ui-widget-content ui-corner-all">
+      <label for="password">Club Attribute</label>
+      <input type="text" name="text" id="text" value="Attribute" class="text ui-widget-content ui-corner-all">
+
+       <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+  </form>
+</div>
+
+<button id="create-Club">Create New Club</button>
+<button id ="remove-Club">Remove Club</button>
+
+
+</body>
+</html>
