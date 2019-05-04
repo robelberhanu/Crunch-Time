@@ -7,7 +7,8 @@ urlpatterns = [
     path('messages.html', views.Messages),
     path('Main_Message_Board.html', views.MainMessages),
     path('Manage_Users.html', views.ManageUsers),
-    path('Manage_Clubs.html', views.ManageClubs)
+    path('Manage_Clubs.html', views.ManageClubs),
+    path('Customise_Users.html', views.CustomiseUsers)
     # arguments for path function -
     # route (required)
     # view (required)

@@ -17,3 +17,6 @@ def ManageUsers(request):
 
 def ManageClubs(request):
     return render(request, 'message_board/Manage_Clubs.html')
+
+def CustomiseUsers(request):
+    return render(request, 'message_board/Customise_Users.html')
