@@ -20,3 +20,9 @@ def ManageClubs(request):
 
 def CustomiseUsers(request):
     return render(request, 'message_board/Customise_Users.html')
+
+def SendMessage(request):
+    return render(request, 'message_board/Send_Message.html')
+
+def CustomiseClubs(request):
+    return render(request, 'message_board/Customise_Clubs.html')
