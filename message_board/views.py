@@ -1,5 +1,6 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect, HttpResponse
+from message_board.models import Message
 # Create your views here.
 
 
