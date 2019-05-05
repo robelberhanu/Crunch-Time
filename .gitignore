@@ -24,6 +24,9 @@ media
 .idea/**/libraries
 .idea/misc.xml
 *.iws /out/
+.idea/WSCSite.iml
+.idea/modules.xml
+.idea/vcs.xml
 
 # Python #
 *.py[cod]
