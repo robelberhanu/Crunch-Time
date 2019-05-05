@@ -15,5 +15,7 @@ message_board/migrations/__pycache__/0001_initial.cpython-36.pyc
 message_board/migrations/__pycache__/__init__.cpython-36.pyc
 registration/migrations/__pycache__/
 
-
-
+.idea/WSCSite.iml
+.idea/dataSources.local.xml
+.idea/workspace.xml
+message_board/__pycache__/urls2.cpython-36.pyc

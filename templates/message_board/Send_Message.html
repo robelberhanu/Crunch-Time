@@ -44,13 +44,17 @@ input[type=submit]:hover {
 
 
     <div>
-        <form action="#">
-            <label for="fname">Type Message</label>
-            <input type="text" id="fname" name="firstname" placeholder="Your Message"></form>
-            <input type="submit" value="Submit">
-            </div>
 
-        </div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="fname">Enter Header</label>
+            <input type="text" id="header" name="header" placeholder="Your Header">
+            <label for="fname">Enter Body</label>
+            <input type="text" id="body" name="body" placeholder="Your Body">
+            <input type="submit" value="Post">
+        </form>
+
+    </div>
 
 
 
