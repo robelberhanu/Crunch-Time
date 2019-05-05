@@ -9,6 +9,20 @@
     </head>
 
     <body>
-       Messages Come here
+       <script>
+
+           // get message
+           let msg = parent.document.URL.substring(parent.document.URL.indexOf('=') + 1, parent.document.URL.length);
+           msg = msg.split("%20").join(" ");
+
+           // create message html element
+           let msgParaElement = document.createElement('p');
+           let msgTextNode = document.createTextNode(msg);
+           msgParaElement.appendChild(msgTextNode);
+
+           // add message html element to document
+           document.body.appendChild(msgParaElement);
+
+       </script>
     </body>
 </html>
