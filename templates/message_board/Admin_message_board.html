@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           Admin Message-Board
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
+
+    </head>
+
+    <body>
+       <!-- <div class="main-div"> -->
+        <div class="nav">
+            <a  href='Main_Message_Board.html' ><img class="logo" src={%  static "login/index.png" %}></a>
+            <a class="profile" href='Main_Message_Board.html'>
+                 <img  class="profile_pic" src="login/user.png">
+            </a>
+        </div>
+        <div class="content">
+            <div class="label">
+                <center>
+                <strong><p>
+                          Admin Message Board
+                        </p>
+                </strong>
+                    </center>
+            </div>
+
+             <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="./Manage_Users.html">Manage Users</a>
+                <a href="./Manage_Clubs.html">Manage Clubs</a>
+
+
+
+              </div>
+
+              <div id="main">
+                 <ul>
+                    <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+                    <li><a href="./Main_Message_Board.html">Main Board</a></li>
+                    <li><a href="./Customise_Users.html">Customise Users</a></li>
+                    <li><a href="./Customise_Clubs.html">Customise Clubs</a></li>
+                     <li><a href="./Send_Message.html">Add Message</a></li>
+
+                   </ul>
+                </div>
+            <table>
+                    <tr>
+                    <th>Subject</th>
+                    <th>Updated by</th>
+                    <th>Time updated</th>
+                    <th>col 4</th>
+                    <th>col 5</th>
+                    </tr>
+                    <tr>
+
+                    <td ><a href="messages.html" %}>Peter
+
+{#                    <td ><a>Peter#}
+{#                        {% block 'body' %}#}
+{#                        {% endblock %}#}
+{#                    </a></td>#}
+
+                    <td>Griffin</td>
+                    <td>$100</td>
+                    <td>$100</td>
+                    <td>$100</td>
+                    </tr>
+                    <tr>
+                            <td ><a href="./home.html">
+                                Robel
+                            </a></td>
+                    <td>Griffin</td>
+                    <td>$150</td>
+                    <td>$100</td>
+                    <td>$100</td>
+                    </tr>
+                    <tr>
+
+                            <td ><a href="./home.html">
+                                Joe
+                        </a></td>
+                    <td>Swanson</td>
+                    <td>$300</td>
+                    <td>$100</td>
+                    <td>$100</td>
+                    </tr>
+                    <tr>
+
+                            <td ><a href="./home.html">
+                                Terence
+                        </a></td>
+                    <td>Brown</td>
+                    <td>$250</td>
+                    <td>$100</td>
+                    <td>$100</td>
+                    </tr>
+                  </table>
+            <div>
+
+        </div>
+         <script>
+            function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+              document.getElementById("main").style.marginLeft = "250px";
+              document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("main").style.marginLeft= "0";
+              document.body.style.backgroundColor = "white";
+            }
+
+
+            </script>
+
+
+    </body>
+</html>

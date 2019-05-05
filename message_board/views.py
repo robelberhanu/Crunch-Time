@@ -4,7 +4,25 @@ from django.shortcuts import render
 
 
 def messageBoard(request):
-    return render(request, 'message_board/message_board.html')
+    return render(request, 'message_board/Admin_message_board.html')
 
 def Messages(request):
     return render(request, 'Messages/messages.html')
+
+def MainMessages(request):
+    return render(request,'message_board/Main_Message_Board.html')
+
+def ManageUsers(request):
+    return render(request, 'message_board/Manage_Users.html')
+
+def ManageClubs(request):
+    return render(request, 'message_board/Manage_Clubs.html')
+
+def CustomiseUsers(request):
+    return render(request, 'message_board/Customise_Users.html')
+
+def SendMessage(request):
+    return render(request, 'message_board/Send_Message.html')
+
+def CustomiseClubs(request):
+    return render(request, 'message_board/Customise_Clubs.html')
