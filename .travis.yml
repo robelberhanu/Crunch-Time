@@ -1,4 +1,14 @@
 language: python
-
-script:
-  - python manage.py test message_board
+  python:
+    - "3.7"
+  dist: xenial # I think this is how you allow for python 3.7
+  services:
+    - mysql
+  env:
+    -DJANGO=2.1 DB=mysql # might need to be DJANJO=2.17
+  install:
+    - pip install -r requirements.txt
+  before_script:
+    - mysql -e 'create database test;' -u root
+  script:
+    - python manage.py test
