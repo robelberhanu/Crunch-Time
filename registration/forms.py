@@ -10,5 +10,5 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ('username',)
 
-class CustomUserCreationForm(forms.Form):
+# class CustomUserCreationForm(forms.Form):
 
