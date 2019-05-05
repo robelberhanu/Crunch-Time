@@ -44,9 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   'django.contrib.sites',
-    #'widget_tweaks',
+    'django.contrib.sites',
+
+    # custom user model
+    'users.apps.UsersConfig',
+    # 'widget_tweaks',
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 SITE_ID = 1
 
