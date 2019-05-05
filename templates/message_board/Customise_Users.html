@@ -1,0 +1,154 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           Customise Users
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
+
+
+        <style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgb(8, 3, 70);
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: rgb(250, 227, 24);
+  color: black;
+}
+
+.topnav a.active {
+  background-color:rgb(8, 3, 70) ;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: rgb(250, 227, 24);
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+</style>
+
+    </head>
+
+    <body>
+
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <div class="search-container">
+                <form action="/action_page.php">
+                     <input type="text" placeholder="Search.." name="search">
+                     <button type="submit"><i class="fa fa-search"> Search User</i></button>
+                 </form>
+         </div>
+        </div>
+            <div>
+
+           <table>
+                    <tr>
+                    <th>User Name</th>
+                    <th>Sports Club Name</th>
+                    <th>Portfolio</th>
+                    </tr>
+                    <tr>
+
+                    <td ><a href="#">Peter
+
+{#                    <td ><a>Peter#}
+{#                        {% block 'body' %}#}
+{#                        {% endblock %}#}
+{#                    </a></td>#}
+
+                    <td>Griffin</td>
+                    <td>$100</td>
+
+
+                    </tr>
+                    <tr>
+                            <td ><a href="#">
+                                Robel
+                            </a></td>
+                    <td>Griffin</td>
+                    <td>$150</td>
+                    </tr>
+                    <tr>
+
+                            <td ><a href="#">
+                                Joe
+                        </a></td>
+                    <td>Swanson</td>
+                    <td>$300</td>
+                    </tr>
+                    <tr>
+
+                            <td ><a href="#">
+                                Terence
+                        </a></td>
+                    <td>Brown</td>
+                    <td>$250</td>
+
+                    </tr>
+                  </table>
+            </div>
+    </body>
+</html>
