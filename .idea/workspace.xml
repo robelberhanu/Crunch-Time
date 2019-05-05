@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="49e62212-a237-44c4-9e71-f59bfd980c91" name="Default Changelist" comment="1) Restructured file structure.&#10;2) Create Django 'app' for message board - i.e. just a file structure.&#10;3) Added functionality for message_board to be viewable on site.&#10;4) Added witsldapauth.py which is a LDAP authorisation template.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message_board/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_board/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/message_board/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/message_board/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,10 +49,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/message_board/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+            <state>
               <folding>
-                <element signature="e#0#64#0" expanded="true" />
+                <element signature="e#13#77#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+              <folding>
+                <element signature="e#22#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_message_board_urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="158">
               <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
             </state>
           </provider>
@@ -149,13 +157,13 @@
         <option value="$PROJECT_DIR$/tests/test_urls" />
         <option value="$PROJECT_DIR$/WSCSite/urls.py" />
         <option value="$PROJECT_DIR$/.travis.yml" />
-        <option value="$PROJECT_DIR$/message_board/views.py" />
         <option value="$PROJECT_DIR$/message_board/urls.py" />
         <option value="$PROJECT_DIR$/tests/test_urls.py" />
+        <option value="$PROJECT_DIR$/message_board/views.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -169,27 +177,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Crunch-Time" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Crunch-Time" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Crunch-Time" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Crunch-Time" type="462c0819:PsiDirectoryNode" />
-              <item name="message_board" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Crunch-Time" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Crunch-Time" type="462c0819:PsiDirectoryNode" />
-              <item name="WSCSite" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,7 +268,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80379000" />
+    <option name="totallyTimeSpent" value="81209000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -294,7 +282,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4991119" visible="true" weight="0.17170954" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4991119" visible="true" weight="0.17170954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5008881" side_tool="true" weight="0.3222672" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -308,14 +296,14 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49959514" weight="0.32733223" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5023548" side_tool="true" weight="0.79568106" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4976452" visible="true" weight="0.3502455" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4976452" visible="true" weight="0.2405892" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.5618557" />
+      <window_info anchor="right" id="Database" order="4" weight="0.5612708" />
       <window_info anchor="right" id="R Graphics" order="5" />
       <window_info anchor="right" id="R Packages" order="6" />
     </layout>
@@ -431,13 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WSCSite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -517,16 +498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/message_board/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/message_board/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -539,8 +510,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_message_board_urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="158">
           <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/message_board/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#13#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+          <folding>
+            <element signature="e#22#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
