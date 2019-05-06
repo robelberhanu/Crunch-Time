@@ -48,7 +48,11 @@ INSTALLED_APPS = [
 
     # custom user model
     'users.apps.UsersConfig',
-    # 'widget_tweaks',
+    
+    'widget_tweaks',
+
+    # my app
+    'WSCSite',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
