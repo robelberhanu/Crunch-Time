@@ -1,0 +1,36 @@
+{% if user.is_authenticated  and user.is_staff%} {#  If user is logged in and is an admin#}
+    {% if user_list %}
+        Current User: {{ user.username }}
+        <ul>
+        {# This block of code simply creates a hyperlink for each user #}
+        {%for users in user_list %}
+            {%for user in users %}
+                {# Hyperlink to each user page - Excludes currently logged in user#}
+                {% if not user.username == user %} {# Not working properly for some reason #}
+                    <li><a href="/administration/users/{{ user }}/">User: {{ user }}</a></li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No users are available.</p>
+    {% endif %}
+    {# Create new user #}
+    <h2>Create new user</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+            {% endfor %}
+            </div>
+        {% endfor %}
+        <button type="submit">Sign up</button>
+    </form>
+{% else %}
+    {# Add button or some functionality to log in #}
+    You must log in to continue
+{% endif %}
