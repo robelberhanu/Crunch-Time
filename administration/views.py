@@ -3,6 +3,7 @@ from django.core.checks import messages
 from django.http import HttpResponse
 from django.template import loader
 
+from message_board.models import Message
 from users.forms import CustomUserCreationForm
 
 from django.contrib.auth import authenticate
@@ -55,4 +56,12 @@ def manage_clubs(request):
 
 def club(request, club_id):
     return HttpResponse("You're looking at club %s." % club_id)
+
+def MainMessages(request):
+    messages = Message.objects.all()
+    return render(request, 'message_board/Main_Message_Board.html', {'messages':messages})
+
+
+def Messages(request):
+    return render(request, 'Messages/messages.html')
 

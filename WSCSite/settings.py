@@ -37,6 +37,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'message_board.apps.MessageBoardConfig',
+    'main_message_board.apps.MainMessageBoardConfig',
+    'admin_message_board.apps.AdminMessageBoardConfig',
     'registration.apps.RegistrationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,7 +51,7 @@ INSTALLED_APPS = [
     # custom user model
     'users.apps.UsersConfig',
 
-    'widget_tweaks',
+    # 'widget_tweaks',
 
     # my app
     'WSCSite',
