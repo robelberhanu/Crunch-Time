@@ -14,7 +14,6 @@
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Robel-robel/Crunch-Time.svg)
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Robel-robel/Crunch-Time.svg)
 
 This Repository is for Team Crunch Time.
 
