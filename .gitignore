@@ -2,9 +2,12 @@
 *.log
 *.pot
 *.pyc
-__pycache__
 db.sqlite3
 media
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
 
 # Backup files #
 *.bak
