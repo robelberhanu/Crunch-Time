@@ -23,14 +23,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
 
-    # path('Admin_message_board/', include('message_board.urls')),
+    path('Admin_message_board/', include('message_board.urls')),
     path('registration/', include('registration.urls')),
-    # path('Main_Message_Board/', include('message_board.urls2')),
+    path('Main_Message_Board/', include('message_board.urls2')),
 
     path('administration/', include('administration.urls')),
-    # path('Main_Message_Board/', include('Main_Message_Board.urls')),
-    path('message_board/admin', include('admin_message_board.urls')),
-    path('message_board/main', include('main_message_board.urls')),
+    #path('Main_Message_Board/', include('Main_Message_Board.urls')),
+
+
 
     # path()
 
