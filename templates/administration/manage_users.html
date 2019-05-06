@@ -7,7 +7,8 @@
             {%for user in users %}
                 {# Hyperlink to each user page - Excludes currently logged in user#}
                 {% if not user.username == user %} {# Not working properly for some reason #}
-                    <li><a href="/administration/users/{{ user }}/">User: {{ user }}</a></li>
+                    <li><a href="/administration/users/{{ user }}/">User: {{ user }}</a>
+                    </li>
                 {% endif %}
             {% endfor %}
         {% endfor %}
@@ -19,15 +20,6 @@
     <h2>Create new user</h2>
     <form method="post">
         {% csrf_token %}
-{#        {% for field in form %}#}
-{#            <div>#}
-{#            {{ field.label_tag }}<br>#}
-{#            {{ field }}#}
-{#            {% for error in field.errors %}#}
-{#                <p style="color: red">{{ error }}</p>#}
-{#            {% endfor %}#}
-{#            </div>#}
-{#        {% endfor %}#}
         <div>
         {{ form.username.label_tag }}<br>
         {{ form.username }}

@@ -1,3 +1,5 @@
+from django.contrib.admin.views.decorators import staff_member_required
+from django.core.checks import messages
 from django.http import HttpResponse
 from django.template import loader
 
@@ -5,27 +7,9 @@ from users.forms import CustomUserCreationForm
 
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from users.models import CustomUser
 
-
-def register(request):
-    # get users
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            # raw_password = form.cleaned_data.get('password1')
-            raw_password = 'temp_password'  # Definitely do not keep this code!
-            user = authenticate(username=username, password=raw_password)  # creates user
-    else:
-        form = UserCreationForm()
-    return render(request, 'administration/create_user.html', {'form': form, 'user': CustomUser})
-
-
-# def manage_users(request):
-#     return HttpResponse("You're looking at the manage users page")
 
 def manage_users(request):
     # User creation
@@ -51,6 +35,14 @@ def manage_users(request):
     # return HttpResponse(template.render(context, request))
     # , 'usernames': usernames}
     return render(request, 'administration/manage_users.html', {'user_list': user_list, 'form':form})
+
+
+# instead of deleting a user to avoid issues with the database
+def deactivate_user(request, username):
+    obj = CustomUser.objects.get(pk=username)
+    obj.is_active = False
+    obj.save()
+    return render(request, 'administration/manage_users.html')
 
 
 def user(request, user_id):
