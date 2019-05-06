@@ -1,14 +1,14 @@
 from django.test import SimpleTestCase
 from message_board.views import messageBoard, Messages, MainMessages, ManageClubs, ManageUsers, CustomiseUsers, SendMessage, CustomiseClubs
 from django.urls import reverse, resolve
-from message_board.models import Message
+#from message_board.models import Message
 
-class TestUrls(SimpleTestCase):
+class TestMessageBoardUrls(SimpleTestCase):
 
-    def test_messageBoard_url_resolves(self):
-        url = reverse('messageBoardView')
-        print(resolve(url))
-        self.assertEquals(resolve(url).func, messageBoard)
+    #def test_messageBoard_url_resolves(self):
+    #    url = reverse('messageBoardView')
+    #    print(resolve(url))
+    #    self.assertEquals(resolve(url).func, messageBoard)
 
     def test_Messages_url_resolves(self):
        url = reverse('Messages')
