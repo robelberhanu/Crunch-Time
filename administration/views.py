@@ -11,6 +11,11 @@ from django.shortcuts import render, get_object_or_404
 from users.models import CustomUser
 
 
+from django.contrib.auth.decorators import login_required
+# Redirect user to login page if not logged in
+@login_required(login_url='/accounts/login/')
+
+
 def manage_users(request):
     # User creation
     if request.method == 'POST':

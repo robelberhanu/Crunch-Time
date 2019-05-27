@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     # custom user model
     'users.apps.UsersConfig',
 
-    'widget_tweaks',
+    # 'widget_tweaks',
 
     # my app
     'WSCSite',
@@ -67,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'WSCSite.middleware.login_required_middleware.LoginRequiredMiddleware', # Doesn't work -> Fix
 ]
 
 ROOT_URLCONF = 'WSCSite.urls'
@@ -130,8 +131,10 @@ DATABASES = {
 #     },
 # ]
 
+# Tries these backends in order until one works
 AUTHENTICATION_BACKENDS = (
     # 'django_auth_ldap.backend.LDAPBackend',
+    # Create Custom backend to use instead of LDAP
     'django.contrib.auth.backends.ModelBackend',
 )
 
