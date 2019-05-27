@@ -29,7 +29,9 @@
         </div>
         <button type="submit">Sign up</button>
     </form>
-{% else %}
+{% elseif user.is_authenticated==false%}
     {# Add button or some functionality to log in #}
     You must log in to continue
+{% elseif user.is_staff==false%}
+    Only users with admin privileges may access this page.
 {% endif %}
