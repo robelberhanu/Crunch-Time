@@ -19,26 +19,60 @@
             box-sizing: border-box;
     }
 
-    input[type=submit] {
-    width: 100%;
-    background-color: rgb(8, 3, 70);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-     border: none;
-    border-radius: 4px;
-     cursor: pointer;
-}
+        input[type=Add] {
+            width: 50%;
+            background-color: rgb(8, 3, 70);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+    }
 
-    input[type=submit]:hover {
-     background-color:rgb(8, 3, 70) ;
-}
+        input[type=Add]:hover {
+            background-color:rgb(8, 3, 70) ;
+    }
 
-    div {
-     border-radius: 5px;
-      background-color: #f2f2f2;
-       padding: 20px;
-}
+        input[type=Remove] {
+            width: 50%;
+            background-color: rgb(8, 3, 70);
+            color: white;
+            padding: 14px 20px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+    }
+
+        input[type=Remove]:hover {
+            background-color: red;
+    }
+
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .nav2{
+
+            background-color: white;
+            height: 100px;
+            width:100%;
+            top: 0;
+            left: 0;
+            overflow: hidden
+        }
+        .centre-container{
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            top: 80%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+        }
+
 </style>
 
 
@@ -47,20 +81,32 @@
 
     <body>
 
+        <div class="nav2">
+            <a  href='Main_Message_Board.html' ><img class="logo" src={%  static "login/index.png" %}></a>
+            <a class="profile" href='Main_Message_Board.html'>
+                 <img  class="profile_pic" src="login/user.png">
+            </a>
+        </div>
+        <div class="label">
+                <center>
+                <strong><p>
+                          CREATE OR REMOVE CLUBS
+                        </p>
+                </strong>
+                    </center>
+            </div>
+
+
+        <div class="centre-container">
         <div>
-    <form action="/action_page.php">
-    <label for="fname">Club Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Club name..">
-
-    <label for="lname">Portfolio</label>
-    <input type="text" id="lname" name="lastname" placeholder="Portfolio..">
-
-
-    <input type="submit" value="Submit">
-  </form>
-</div>
-
-
+         <form action="#">
+            <label for="fname">Club Name</label>
+             <input type="text" id="fname" name="firstname" placeholder="Club name..">
+             <input type="Add" value="Add Club">
+             <input type="Remove" value="Remove Club">
+        </form>
+        </div>
+        </div>
 
     </body>
 </html>

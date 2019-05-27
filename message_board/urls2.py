@@ -6,7 +6,7 @@ urlpatterns = [
     path('', views.MainMessages, name='messageBoardView'),
     path('messages.html', views.Messages),
     # path('Main_Message_Board.html', views.MainMessages),
-    # path('Manage_Users.html', views.ManageUsers),
+    # path('Create_Users.html', views.ManageUsers),
     # path('Manage_Clubs.html', views.ManageClubs)
     # arguments for path function -
     # route (required)

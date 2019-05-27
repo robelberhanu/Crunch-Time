@@ -40,7 +40,7 @@ class TestMessageBoardViews(TestCase):
         # print(response)
         self.assertEquals(response.status_code, 200)
         # print(response.status_code)
-        self.assertTemplateUsed(response, 'message_board/Manage_Users.html')
+        self.assertTemplateUsed(response, 'message_board/Create_Users.html')
 
     def test_ManageClubs_GET(self):
         response = self.client.get(self.manageclubs_url)

@@ -1,0 +1,100 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+       <meta http-equiv="refresh" content="30">
+  <title>Create Users</title>
+  <link rel="stylesheet" href="{% static "login/Styles2.css" %}">
+
+    <style>
+
+            .nav5{
+                 background-color: white;
+                height: 100px;
+                width:100%;
+                top: 0;
+                left: 0;
+                overflow: hidden
+            }
+
+
+            input[type=text], select {
+
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+
+            }
+
+             input[type=submit] {
+                width: 100%;
+                background-color:rgb(8, 3, 70) ;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                left: 50%;
+    }
+
+          input[type=submit]:hover {background-color: rgb(8, 3, 70);
+    }
+
+
+            .centre-container{
+                margin: 0;
+                position: absolute;
+                left: 50%;
+                top: 70%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+
+            }
+
+
+    </style>
+
+
+</head>
+<body>
+
+
+          <div class="nav5">
+            <a  href='Main_Message_Board.html' ><img class="logo" src={%  static "login/index.png" %}></a>
+            <a class="profile" href='Main_Message_Board.html'><img  class="profile_pic" src="login/user.png"></a>
+        </div>
+          <div class="label">
+                <center>
+                <strong><p>
+                          CREATE USERS
+                        </p>
+                </strong>
+                    </center>
+            </div>
+        <div class="centre-container">
+        <div>
+
+  <form>
+      <input type="text" name="name" id="name" value="Student Number">
+      <input type="text" name="name" id="name" value="Name">
+      <input type="text" name="name" id="name" value="Surname">
+      <input type="text" name="name" id="name" value="ID">
+      <input type="text" name="name" id="name" value="Portfolio">
+      <input type="text" name="name" id="name" value="Cell Number">
+      <input type="text" name="email" id="email" value="email@gamil.com">
+      <input type="submit" value="Create User">
+
+  </form>
+        </div>
+
+    </div>
+</body>
+</html>

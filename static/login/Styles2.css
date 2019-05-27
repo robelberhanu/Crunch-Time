@@ -1,5 +1,6 @@
 body {
     background-color: white;
+    overflow: scroll;
 }
 
 
@@ -64,7 +65,7 @@ table {
   }
   /* a { color: #FF0000; } */
   td  a{
-    color: #010641;;
+    color: #010641;
   }
 
   tr:nth-child(even) {color: #010641;background-color: #9aa4bb;}

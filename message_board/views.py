@@ -21,7 +21,7 @@ def MainMessages(request):
     return render(request, 'message_board/Main_Message_Board.html', {'messages':messages})
 
 def ManageUsers(request):
-    return render(request, 'message_board/Manage_Users.html')
+    return render(request, 'message_board/Create_Users.html')
 
 def ManageClubs(request):
     return render(request, 'message_board/Manage_Clubs.html')
