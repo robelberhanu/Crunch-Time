@@ -20,7 +20,7 @@ install:
 before_script:
   - mysql -e 'create database test;' -u root
 script:
-  - python manage.py test tests
+#  - python manage.py test tests
   - coverage run --source='tests' manage.py test tests
 
 after_success:
