@@ -8,13 +8,14 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('username','first_name','last_name','email','contact_number') # , 'first_name', 'last_name', 'email', 'contact_number'
+        fields = ('username', 'first_name', 'last_name', 'email', 'contact_number', 'id_number') # , 'first_name', 'last_name', 'email', 'contact_number'
 
     # A password is not required to create user - Other authentication will be used
     def __init__(self, *args, **kargs):
         super(CustomUserCreationForm, self).__init__(*args, **kargs)
         self.fields['password1'].required = False
         self.fields['password2'].required = False
+        self.fields['id_number'].required = True
         # self.fields['contact_number'].required = False
         # self.fields.pop('password1')
         # self.fields.pop('password2')
