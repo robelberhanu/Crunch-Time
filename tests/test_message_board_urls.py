@@ -1,8 +1,6 @@
 from django.test import SimpleTestCase
 from message_board.views import messageBoard, Messages, MainMessages, ManageClubs, ManageUsers, CustomiseUsers, SendMessage, CustomiseClubs
-from registration.views import register
 from django.urls import reverse, resolve
-#from message_board.models import Message
 
 class TestMessageBoardUrls(SimpleTestCase):
 

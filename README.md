@@ -14,6 +14,7 @@
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Robel-robel/Crunch-Time.svg)
 
+[![Coverage Status](https://coveralls.io/repos/github/Robel-robel/Crunch-Time/badge.svg?branch=master)](https://coveralls.io/github/Robel-robel/Crunch-Time?branch=master)
 
 This Repository is for Team Crunch Time.
 
