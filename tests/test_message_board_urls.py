@@ -6,10 +6,10 @@ from django.urls import reverse, resolve
 
 class TestMessageBoardUrls(SimpleTestCase):
 
-    def test_messageBoard_url_resolves(self):
-       url = reverse('messageBoardView')
-       # print(resolve(url))
-       self.assertEquals(resolve(url).func, messageBoard)
+    # def test_messageBoard_url_resolves(self):
+    #    url = reverse('messageBoardView')
+    #    # print(resolve(url))
+    #    self.assertEquals(resolve(url).func, messageBoard)
 
     def test_Messages_url_resolves(self):
        url = reverse('Messages')

@@ -28,12 +28,12 @@ class TestMessageBoardViews(TestCase):
         # print(response.status_code)
         self.assertTemplateUsed(response, 'Messages/messages.html')
 
-    def test_MainMessages_GET(self):
-        response = self.client.get(self.mainmessages_url)
-        # print(response)
-        self.assertEquals(response.status_code, 200)
-        # print(response.status_code)
-        self.assertTemplateUsed(response, 'message_board/Main_Message_Board.html')
+    # def test_MainMessages_GET(self):
+    #     response = self.client.get(self.mainmessages_url)
+    #     # print(response)
+    #     self.assertEquals(response.status_code, 200)
+    #     # print(response.status_code)
+    #     self.assertTemplateUsed(response, 'message_board/Main_Message_Board.html')
 
     def test_ManageUsers_GET(self):
         response = self.client.get(self.manageusers_url)
