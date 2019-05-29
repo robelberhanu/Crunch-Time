@@ -4,7 +4,7 @@
 
 ![Travis (.com) branch](https://img.shields.io/travis/com/Robel-robel/Crunch-Time/master.svg)
 
-[![Coverage Status](https://coveralls.io/repos/github/Robel-robel/Crunch-Time/badge.png?branch=master)](https://coveralls.io/github/Robel-robel/Crunch-Time?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Robel-robel/Crunch-Time/badge.svg?branch=master)](https://coveralls.io/github/Robel-robel/Crunch-Time?branch=master)
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Robel-robel/Crunch-Time.svg)
 
