@@ -6,5 +6,5 @@ class TestRegistrationUrls(SimpleTestCase):
 
     def test_register_url(self):
         url = reverse('registerView');
-        print(resolve(url))
+        # print(resolve(url))
         self.assertEqual(resolve(url).func, register)
