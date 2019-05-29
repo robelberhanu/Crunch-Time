@@ -7,7 +7,7 @@ class TestMessageBoardViews(TestCase):
         self.cleint = Client()
         self.messageBoard_url = reverse('messageBoardView')
         self.messages_url = reverse('Messages')
-        self.mainmessages_url = reverse('MainMessageBoard')
+        # self.mainmessages_url = reverse('MainMessageBoard')
         self.manageusers_url = reverse('ManageUsers')
         self.manageclubs_url = reverse('ManageClubs')
         self.customiseusers_url = reverse('CustomiseUsers')
