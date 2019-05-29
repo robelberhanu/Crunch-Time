@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.template.backends import django
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+import message_board.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,9 +29,6 @@ urlpatterns = [
     path('Main_Message_Board/', include('user_message_board.urls')), # Fix cause this doesn't work or make sense
 
     path('administration/', include('administration.urls')),
-    #path('Main_Message_Board/', include('Main_Message_Board.urls')),
-
-
 
     # path()
 

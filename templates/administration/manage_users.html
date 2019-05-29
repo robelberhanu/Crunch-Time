@@ -138,7 +138,7 @@
         <div class="label">
             <center>
             <strong><p>
-                        CUSTOMISE USERS
+                        Customise Users
                     </p>
             </strong>
             </center>
@@ -159,46 +159,40 @@
             <table>
                     <tr>
                     <th>User Name</th>
-
-                    <th>Portfolio</th>
-                     <th>Remove User</th>
+                    <th>Name</th>
+                    <th>Email Address</th>
+                    <th>Contact No</th>
+                    <th>ID Number</th>
+{#                     <th>Remove User</th>#}
                     </tr>
 
-                    {%for users in user_list %}
-                        {%for user in users %}
-                            <tr>
+{#                    {%for users in username_list %}#}
+{#                        {%for user in users %}#}
+{#                            <tr>#}
 {#                                {% if not user.username == user %}#}
-                            <td><a href="/administration/users/{{ user }}/">{{ user }}</a>
-                            </td>
+{#                            <td><a href="/administration/users/{{ user }}/">{{ user }}</a>#}
+{#                            </td>#}
 {#                                {% endif %}#}
-                            <td></td>
-                            <td></td>
-                            </tr>
-                        {% endfor %}
+{#                            <td></td>#}
+{#                            <td></td>#}
+{#                            </tr>#}
+{#                        {% endfor %}#}
+{#                    {% endfor %}#}
+                    {%for user in user_list %}
+                        <tr>
+                        <td><a href="/administration/users/{{ user.username }}/">{{ user.username }}</a>
+                        </td>
+                        <td> {{ user.first_name }} {{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.contact_number }}</td>
+                        <td>{{ user.id_number }}</td>
+                        </tr>
                     {% endfor %}
-
-{#                    <tr>#}
-{#                        <td ><a href="#">Peter</a>#}
-{#                        <td>$100</td>#}
-{#                        <td ><a href="#">Remove</a>#}
-{#                    </tr>#}
-{#                    <tr>#}
-{#                        <td ><a href="#">Robel</a></td>#}
-{#                        <td>$150</td>#}
-{#                        <td ><a href="#">Remove</a>#}
-{#                    </tr>#}
-{#                    <tr>#}
-{#                        <td ><a href="#">Joe</a></td>#}
-{#                        <td>$300</td>#}
-{#                        <td ><a href="#">Remove</a>#}
-{#                    </tr>#}
-{#                    <tr>#}
-{#                        <td ><a href="#">Terence</a></td>#}
-{#                        <td>$250</td>#}
-{#                         <td ><a href="#">Remove</a>#}
-{#                    </tr>#}
             </table>
         </div>
+    {% else  %}
+        {# TODO: Put better UI here#}
+        Sorry but only users with admin privileges are allowed to use this page
     {% endif %}
     </body>
 </html>
