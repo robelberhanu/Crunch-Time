@@ -10,21 +10,19 @@ import users.models
 
 
 def messageBoard(request):
-    messages = Message.objects.all()
-    return render(request, 'message_board/Admin_message_board.html', {'messages':messages})
+    return render(request, 'message_board/Admin_message_board.html')
 
 def Messages(request):
     return render(request, 'Messages/messages.html')
 
 def MainMessages(request):
-    messages = Message.objects.all()
-    return render(request, 'message_board/Main_Message_Board.html', {'messages':messages})
+    return render(request, 'message_board/Main_Message_Board.html')
 
 def ManageUsers(request):
     return render(request, 'message_board/Create_Users.html')
 
 def ManageClubs(request):
-    return render(request, 'message_board/Manage_Clubs.html')
+    return render(request, 'message_board/Customise_Clubs.html')
 
 def CustomiseUsers(request):
     return render(request, 'message_board/Customise_Users.html')
