@@ -24,7 +24,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
 
     path('Admin_message_board/', include('message_board.urls')),
-    path('registration/', include('registration.urls')),
+    # path('registration/', include('registration.urls')),
     path('Main_Message_Board/', include('message_board.urls2')), # Fix cause this doesn't work or make sense
 
     path('administration/', include('administration.urls')),
