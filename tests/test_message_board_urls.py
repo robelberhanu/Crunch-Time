@@ -8,7 +8,7 @@ class TestMessageBoardUrls(SimpleTestCase):
 
     def test_messageBoard_url_resolves(self):
        url = reverse('messageBoardView')
-       print(resolve(url))
+       # print(resolve(url))
        self.assertEquals(resolve(url).func, messageBoard)
 
     def test_Messages_url_resolves(self):
@@ -18,7 +18,7 @@ class TestMessageBoardUrls(SimpleTestCase):
 
     def test_MainMessages_url_resolves(self):
         url = reverse('MainMessageBoard')
-        print(resolve(url))
+        # print(resolve(url))
         self.assertEquals(resolve(url).func, MainMessages)
 
     def test_ManageUsers_url_resolves(self):
