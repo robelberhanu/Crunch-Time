@@ -6,6 +6,8 @@ from . import views
 urlpatterns = [
     # ex: /administration/users
     path('users/', views.manage_users, name='manage_users'),
+    # ex: /administration/users/create
+    path('users/create/', views.create_user, name='create_user'),
     # ex: /administration/user/1391994/
     path('users/<str:user_id>/', views.user, name='user'),
     # ex: /administration/clubs

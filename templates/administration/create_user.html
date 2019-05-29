@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
        <meta http-equiv="refresh" content="30">
-  <title>Create Users</title>
+  <title>Create User</title>
   <link rel="stylesheet" href="{% static "login/Styles2.css" %}">
 
     <style>
@@ -81,13 +81,7 @@
     <div class="centre-container">
         <div>
             <form method="post">
-{#                <input type="text" name="name" id="name" value="Student Number">#}
-{#                <input type="text" name="name" id="name" value="Name">#}
-{#                <input type="text" name="name" id="name" value="Surname">#}
-{#                <input type="text" name="name" id="name" value="ID">#}
-{#                <input type="text" name="name" id="name" value="Portfolio">#}
-{#                <input type="text" name="name" id="name" value="Cell Number">#}
-{#                <input type="text" name="email" id="email" value="email@gamil.com">#}
+                {% csrf_token %}
                 {% for f in form %}
                     {% if f != form.password1 and f != form.password2%}
                         {{ f.label_tag }}

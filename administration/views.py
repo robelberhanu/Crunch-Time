@@ -1,6 +1,7 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.checks import messages
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 
@@ -17,17 +18,25 @@ from users.models import CustomUser
 
 
 def manage_users(request):
+    # Display users
+    user_list = CustomUser.objects.all().values_list('username', flat=True),
+    # usernames = user_list.values_list('username', flat=True),
+    # return HttpResponse(template.render(context, request))
+    # , 'usernames': usernames}
+    return render(request, 'administration/manage_users.html', {'user_list': user_list})
+
+
+def create_user(request):
     # User creation
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        tempVal =  form.is_valid
         if form.is_valid():
             form.save(commit=False)
             username = form.cleaned_data.get('username')
-            first_name = form.get('first_name')
-            last_name = form.get('last_name')
-            email = form.get('email')
-            contact_number = form.get('contact_number')
+            first_name = form.data.get('first_name')
+            last_name = form.data.get('last_name')
+            email = form.data.get('email')
+            contact_number = form.data.get('contact_number')
             raw_password = 'temp'  # Will be changed below
             # Dunno if this is valid
             curr_user = CustomUser.objects.create_user(username=username, password=raw_password, email=email, first_name=first_name, last_name=last_name, contact_number=contact_number)
@@ -35,18 +44,14 @@ def manage_users(request):
             # basically says that the user has no password - used for custom authentication i.e. LDAP
             curr_user.set_unusable_password()
             curr_user.save()
+            # redirect back to manage_users
+            return redirect(manage_users)
     else:
         form = CustomUserCreationForm()
-
-    # Display users
-    user_list = CustomUser.objects.all().values_list('username', flat=True),
-    # usernames = user_list.values_list('username', flat=True),
-    # return HttpResponse(template.render(context, request))
-    # , 'usernames': usernames}
-    return render(request, 'administration/manage_users.html', {'user_list': user_list, 'form':form})
+    return render(request, 'administration/create_user.html', {'form': form})
 
 
-# instead of deleting a user to avoid issues with the database
+# instead of deleting a user to avoid issues with the database - rather delete for the moment
 def deactivate_user(request, username):
     obj = CustomUser.objects.get(pk=username)
     obj.is_active = False
