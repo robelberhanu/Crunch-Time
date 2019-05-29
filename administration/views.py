@@ -19,11 +19,12 @@ from users.models import CustomUser
 
 def manage_users(request):
     # Display users
-    user_list = CustomUser.objects.all().values_list('username', flat=True),
+    username_list = CustomUser.objects.all().values_list('username', flat=True),
+    user_list = list(CustomUser.objects.all())
     # usernames = user_list.values_list('username', flat=True),
     # return HttpResponse(template.render(context, request))
     # , 'usernames': usernames}
-    return render(request, 'administration/manage_users.html', {'user_list': user_list})
+    return render(request, 'administration/manage_users.html', {'username_list': username_list, 'user_list': user_list})
 
 
 def create_user(request):
@@ -37,12 +38,15 @@ def create_user(request):
             last_name = form.data.get('last_name')
             email = form.data.get('email')
             contact_number = form.data.get('contact_number')
-            raw_password = 'temp'  # Will be changed below
+            id_number = form.data.get('id_number')
+            dob = str(id_number)[:6]
+            raw_password = dob  # Will be changed below
+
             # Dunno if this is valid
-            curr_user = CustomUser.objects.create_user(username=username, password=raw_password, email=email, first_name=first_name, last_name=last_name, contact_number=contact_number)
+            curr_user = CustomUser.objects.create_user(username=username, password=raw_password, email=email, first_name=first_name, last_name=last_name, contact_number=contact_number, id_number=id_number)
             # curr_user = authenticate(username=username, password=raw_password)
             # basically says that the user has no password - used for custom authentication i.e. LDAP
-            curr_user.set_unusable_password()
+            # curr_user.set_unusable_password()
             curr_user.save()
             # redirect back to manage_users
             return redirect(manage_users)
