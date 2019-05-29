@@ -4,7 +4,7 @@
 
 ![Travis (.com) branch](https://img.shields.io/travis/com/Robel-robel/Crunch-Time/master.svg)
 
-![Coveralls github](https://img.shields.io/coveralls/github/Robel-robel/Crunch-Time.svg)
+[![Coverage Status](https://coveralls.io/repos/github/Robel-robel/Crunch-Time/badge.svg?branch=master)](https://coveralls.io/github/Robel-robel/Crunch-Time?branch=master)
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Robel-robel/Crunch-Time.svg)
 
@@ -13,8 +13,6 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/Robel-robel/Crunch-Time.svg)
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Robel-robel/Crunch-Time.svg)
-
-[![Coverage Status](https://coveralls.io/repos/github/Robel-robel/Crunch-Time/badge.svg?branch=master)](https://coveralls.io/github/Robel-robel/Crunch-Time?branch=master)
 
 This Repository is for Team Crunch Time.
 
