@@ -8,7 +8,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('username',)
+        fields = ('username', 'first_name', 'last_name', 'email', 'contact_number')
 
     # A password is not required to create user - Other authentication will be used
     def __init__(self, *args, **kargs):
@@ -17,6 +17,15 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['password2'].required = False
         # self.fields.pop('password1')
         # self.fields.pop('password2')
+
+    def save(self, commit=True):
+        user = super(CustomUserCreationForm, self).save(commit=False)
+        # first_name, last_name = self.cleaned_data["fullname"].split()
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.email = self.cleaned_data["email"]
+        user.contact_number = self.cleaned_data["contact_number"]
+        return user
 
 
 class CustomUserChangeForm(UserChangeForm):

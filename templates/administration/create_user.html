@@ -1,30 +1,3 @@
-{#{% if user.is_authenticated  and user.is_staff%} {#  If user is logged in and is an admin#}
-{#    {% if user_list %}#}
-{#        Current User: {{ user.username }}#}
-{#        <ul>#}
-        {# This block of code simply creates a hyperlink for each user #}
-{#        {%for users in user_list %}#}
-{#            {%for user in users %}#}
-                {# Hyperlink to each user page - Excludes currently logged in user#}
-{#                {% if not user.username == user %} {# Not working properly for some reason #}
-{#                    <li><a href="/administration/users/{{ user }}/">User: {{ user }}</a>#}
-{#                    </li>#}
-{#                {% endif %}#}
-{#            {% endfor %}#}
-{#        {% endfor %}#}
-{#        </ul>#}
-{#    {% else %}#}
-{#        <p>No users are available.</p>#}
-{#    {% endif %}#}
-    {# Create new user #}
-{#    <h2>Create new user</h2>#}
-{#{% elif not user.is_authenticated%}#}
-    {# Add button or some functionality to log in #}
-{#    You must log in to continue#}
-{#{% elif user.is_staff%}#}
-{#    Only users with admin privileges may access this page.#}
-{#{% endif %}#}
-
 {% load static %}
 
 <!doctype html>
@@ -89,7 +62,6 @@
 
     </style>
 
-
 </head>
 <body>
 {%  if user.is_staff %}
@@ -108,7 +80,7 @@
     </div>
     <div class="centre-container">
         <div>
-            <form>
+            <form method="post">
 {#                <input type="text" name="name" id="name" value="Student Number">#}
 {#                <input type="text" name="name" id="name" value="Name">#}
 {#                <input type="text" name="name" id="name" value="Surname">#}

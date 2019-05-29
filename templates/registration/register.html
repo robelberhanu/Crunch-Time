@@ -1,49 +1,49 @@
-{% extends 'base.html' %}
-{% load widget_tweaks %}
-{% load static %}
-
+{#{% extends 'base.html' %}#}
+{#{% load widget_tweaks %}#}
+{#{% load static %}#}
+{##}
 {#Just a random css file - change to right css file#}
-<link rel="stylesheet" type="text/css" href="{% static "login/Styles.css" %}">
-
-{% block content %}
-  <h2>Sign up</h2>
-  <br method="post">
-    {% csrf_token %}
+{#<link rel="stylesheet" type="text/css" href="{% static "login/Styles.css" %}">#}
+{##}
+{#{% block content %}#}
+{#  <h2>Sign up</h2>#}
+{#  <br method="post">#}
+{#    {% csrf_token %}#}
     {# Code below just shows all the associated sign up fields, i.e. password username etc #}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
+{#    {% for field in form %}#}
+{#      <p>#}
+{#        {{ field.label_tag }}<br>#}
 {#        {{ field |add_class:'form-control'}}#} {# add_class:'className' - same as class="className"#}
-    <div class = "loginbox">
-    <br method="post">
-    {% csrf_token %}
-    <img src="{% static "login/index.png"%}" class="avatar">
+{#    <div class = "loginbox">#}
+{#    <br method="post">#}
+{#    {% csrf_token %}#}
+{#    <img src="{% static "login/index.png"%}" class="avatar">#}
     {# Code below just shows all the associated sign up fields, i.e. password username etc #}
-    <h1>Register User</h1>
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
+{#    <h1>Register User</h1>#}
+{#    {% for field in form %}#}
+{#      <p>#}
+{#        {{ field.label_tag }}<br>#}
     {#        {{ field |add_class:'form-control'}}#} {# add_class:'className' - same as class="className"#}
-
+{##}
         {# TODO - Change below {{ field }} to above code with correct css #}
-        {{ field }}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    {% endfor %}
-    <button type="submit">Sign up</button>
-    <br>
+{#        {{ field }}#}
+{#        {% for error in field.errors %}#}
+{#          <p style="color: red">{{ error }}</p>#}
+{#        {% endfor %}#}
+{#      </p>#}
+{#    {% endfor %}#}
+{#    {% endfor %}#}
+{#    <button type="submit">Sign up</button>#}
+{#    <br>#}
     {#Display current users#}
-    {% if User %}
-        <ul>
-            {% for user in User.User_set.all %}
-            <li>{{ user.username }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <strong>No users have been created yet :/</strong> {# I don't think this will ever show#}
-    {% endif %}
+{#    {% if User %}#}
+{#        <ul>#}
+{#            {% for user in User.User_set.all %}#}
+{#            <li>{{ user.username }}</li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#    {% else %}#}
+{#        <strong>No users have been created yet :/</strong> {# I don't think this will ever show#}
+{#    {% endif %}#}
     {#        <strong>No users have been created yet :/</strong> {# I don't think this will ever show#}
-{% endblock %}
+{#{% endblock %}#}

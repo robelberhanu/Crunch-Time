@@ -97,6 +97,9 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# pycache
+WSCSite/__pycache__
+
 # Sublime Text #
 *.tmlanguage.cache
 *.tmPreferences.cache
