@@ -1,25 +1,23 @@
 from django.test import SimpleTestCase
-from message_board.views import messageBoard, Messages, ManageClubs, ManageUsers, CustomiseUsers, SendMessage, CustomiseClubs
+from message_board.views import messageBoard, Messages, MainMessages, ManageClubs, ManageUsers, CustomiseUsers, SendMessage, CustomiseClubs
 from django.urls import reverse, resolve
-
-# MainMessages,
 
 class TestMessageBoardUrls(SimpleTestCase):
 
-    # def test_messageBoard_url_resolves(self):
-    #    url = reverse('messageBoardView')
-    #    # print(resolve(url))
-    #    self.assertEquals(resolve(url).func, messageBoard)
+    def test_messageBoard_url_resolves(self):
+       url = reverse('messageBoardView')
+       # print(resolve(url))
+       self.assertEquals(resolve(url).func, messageBoard)
 
     def test_Messages_url_resolves(self):
        url = reverse('Messages')
        # print(resolve(url))
        self.assertEquals(resolve(url).func, Messages)
 
-    # def test_MainMessages_url_resolves(self):
-    #     url = reverse('MainMessageBoard')
-    #     # print(resolve(url))
-    #     self.assertEquals(resolve(url).func, MainMessages)
+    def test_MainMessages_url_resolves(self):
+        url = reverse('MainMessageBoard')
+        # print(resolve(url))
+        self.assertEquals(resolve(url).func, MainMessages)
 
     def test_ManageUsers_url_resolves(self):
        url = reverse('ManageUsers')
