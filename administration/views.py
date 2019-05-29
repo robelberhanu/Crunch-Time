@@ -60,6 +60,7 @@ def deactivate_user(request, username):
 
 
 def user(request, user_id):
+    print(user_id)
     return HttpResponse("You're looking at user %s." % user_id)
 
 

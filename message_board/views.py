@@ -10,8 +10,7 @@ import users.models
 
 
 def messageBoard(request):
-    messages = Message.objects.all()
-    return render(request, 'message_board/Admin_message_board.html', {messages: messages})
+    return render(request, 'message_board/Admin_message_board.html')
 
 def Messages(request):
     messages = Message.objects.all()
