@@ -25,7 +25,7 @@ urlpatterns = [
 
     path('Admin_message_board/', include('message_board.urls')),
     # path('registration/', include('registration.urls')),
-    path('Main_Message_Board/', include('message_board.urls2')), # Fix cause this doesn't work or make sense
+    path('Main_Message_Board/', include('user_message_board.urls')), # Fix cause this doesn't work or make sense
 
     path('administration/', include('administration.urls')),
     #path('Main_Message_Board/', include('Main_Message_Board.urls')),

@@ -3,7 +3,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.messageBoard, name='messageBoardView'),
+    path('', views.MainMessages, name='messageBoardView'),
     path('messages.html', views.Messages),
     # path('Main_Message_Board.html', views.MainMessages),
     # path('Create_Users.html', views.ManageUsers),

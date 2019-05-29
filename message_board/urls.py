@@ -5,7 +5,6 @@ from . import views
 urlpatterns = [
     path('', views.messageBoard, name='messageBoardView'),
     path('messages.html', views.Messages, name='Messages'),
-    path('Main_Message_Board.html', views.MainMessages, name='MainMessageBoard'),
     path('Create_Users.html', views.ManageUsers, name='ManageUsers'),
     path('Manage_Clubs.html', views.ManageClubs, name='ManageClubs'),
     path('Customise_Users.html', views.CustomiseUsers, name='CustomiseUsers'),
