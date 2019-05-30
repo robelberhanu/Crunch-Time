@@ -6,7 +6,7 @@ from django.urls import reverse, resolve
 class TestMessageBoardUrls(SimpleTestCase):
 
     def test_messageBoard_url_resolves(self):
-       url = reverse('messageBoardView')
+       url = reverse('mainMessageBoardView')
        print('loook here satan:',resolve(url))
        self.assertEquals(resolve(url).func, MainMessages)
 

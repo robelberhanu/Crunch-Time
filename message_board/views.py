@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from message_board.models import Message
@@ -8,6 +9,8 @@ import datetime
 import users.models
 # Create your views here.
 
+# Redirect user to login page if not logged in
+@login_required(login_url='/accounts/login/')
 
 def messageBoard(request):
     messages = Message.objects.all()
