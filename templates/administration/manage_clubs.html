@@ -102,8 +102,8 @@
     <body>
     {% if  user.is_staff%}
         <div class="nav4">
-            <a  href='Main_Message_Board.html' ><img class="logo" src={%  static "login/index.png" %}></a>
-            <a class="profile" href='Main_Message_Board.html'>
+            <a  href='{% url 'messageBoardView' %}' ><img class="logo" src={%  static "login/index.png" %}></a>
+            <a class="profile" href='{% url 'messageBoardView' %}'>
                  <img  class="profile_pic" src="login/user.png">
             </a>
         </div>
