@@ -10,11 +10,26 @@ import users.models
 
 
 def messageBoard(request):
-    return render(request, 'message_board/Admin_message_board.html')
+    messages = Message.objects.all()
+    return render(request, 'message_board/Admin_message_board.html', {messages: messages})
+
 
 def Messages(request):
+    return render(request, 'Messages/messages.html')
+
+
+def MainMessages(request):
+    # return render(request, 'message_board/Main_Message_Board.html')
     messages = Message.objects.all()
     return render(request, 'Messages/messages.html', {messages : messages})
+
+# def messageBoard(request):
+#     messages = Message.objects.all()
+#     return render(request, 'message_board/Admin_message_board.html', {messages: messages})
+#
+# def Messages(request):
+#     messages = Message.objects.all()
+#     return render(request, 'Messages/messages.html', {messages : messages})
 
 def ManageUsers(request):
     return render(request, 'message_board/Create_Users.html')

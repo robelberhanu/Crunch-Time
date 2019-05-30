@@ -7,6 +7,6 @@ def MainMessages(request):
     messages = Message.objects.all()
     return render(request, 'message_board/Main_Message_Board.html', {messages: messages})
 
+
 def Messages(request):
-    messages = Message.objects.all()
-    return render(request, 'Messages/messages.html', {messages: messages})
+    return render(request, 'Messages/messages.html')

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
     # custom user model
     'users.apps.UsersConfig',
+    'administration.apps.AdministrationConfig',
 
     # my app
     'WSCSite',
@@ -149,6 +150,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = '/Admin_message_board/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

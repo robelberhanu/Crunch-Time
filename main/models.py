@@ -9,7 +9,7 @@ class Club (models.Model):
 
 
 class Portfolio (models.Model):
-    portfolio_id = models.IntegerField(primary_key=True)
+    # portfolio_id = models.IntegerField(primary_key=True)
     portfolio_name = models.CharField(max_length=30)
 
 

@@ -6,11 +6,14 @@ from django.template import loader
 from django.contrib.auth.decorators import login_required
 
 from users.forms import CustomUserCreationForm
+from .forms import ClubCreationForm
+
 
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, get_object_or_404
 from users.models import CustomUser
+from main.models import Club
 
 
 # Redirect user to login page if not logged in
@@ -19,12 +22,12 @@ from users.models import CustomUser
 
 def manage_users(request):
     # Display users
-    username_list = CustomUser.objects.all().values_list('username', flat=True),
+    # username_list = CustomUser.objects.all().values_list('username', flat=True),
     user_list = list(CustomUser.objects.all())
     # usernames = user_list.values_list('username', flat=True),
     # return HttpResponse(template.render(context, request))
-    # , 'usernames': usernames}
-    return render(request, 'administration/manage_users.html', {'username_list': username_list, 'user_list': user_list})
+    # , 'usernames': usernames} 'username_list': username_list,
+    return render(request, 'administration/manage_users.html', { 'user_list': user_list})
 
 
 def create_user(request):
@@ -64,14 +67,28 @@ def deactivate_user(request, username):
 
 
 def user(request, user_id):
-    print(user_id)
-    return HttpResponse("You're looking at user %s." % user_id)
+    currUser = CustomUser.objects.get(username=user_id)
+    return render(request, 'administration/user.html', {user:currUser})
+    # return HttpResponse("You're looking at user %s." % user_id)
 
 
 def manage_clubs(request):
-    return HttpResponse("You're looking at the manage clubs page")
+    clubs = Club.objects.all()
+    return render(request, 'administration/manage_clubs.html', {clubs: clubs})
 
 
 def club(request, club_id):
-    return HttpResponse("You're looking at club %s." % club_id)
+    currClub = Club.objects.get(username=club_id)
+    return render(request, 'administration/club.html', {club: currClub})
+
+
+def create_club(request):
+    if request.method == 'POST':
+        form = ClubCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(manage_clubs)
+    else:
+        form = ClubCreationForm()
+    return render(request, 'administration/create_club.html', {'form': form})
 
