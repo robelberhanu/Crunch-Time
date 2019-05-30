@@ -11,7 +11,7 @@ import users.models
 
 def messageBoard(request):
     messages = Message.objects.all()
-    return render(request, 'message_board/Admin_message_board.html', {messages: messages})
+    return render(request, 'message_board/Admin_message_board.html', {'messages': messages})
 
 
 def Messages(request):
@@ -21,7 +21,7 @@ def Messages(request):
 def MainMessages(request):
     # return render(request, 'message_board/Main_Message_Board.html')
     messages = Message.objects.all()
-    return render(request, 'Messages/messages.html', {messages : messages})
+    return render(request, 'Messages/messages.html', {'messages': messages})
 
 # def messageBoard(request):
 #     messages = Message.objects.all()

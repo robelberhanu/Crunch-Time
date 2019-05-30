@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import CustomUser
 
 # Create your models here.
 
@@ -9,12 +10,16 @@ class Club (models.Model):
 
 
 class Portfolio (models.Model):
-    # portfolio_id = models.IntegerField(primary_key=True)
+    portfolio_id = models.IntegerField(primary_key=True)
     portfolio_name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.portfolio_name
 
 
 class StudentClubRelation(models.Model):
-    user_id = models.CharField(max_length=10)
+    # user_id = models.CharField(max_length=10)
+    user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE, unique=True)
     club_id = models.ForeignKey(Club, on_delete=models.CASCADE)
     portfolio_id = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
 

@@ -5,7 +5,7 @@ from message_board.models import Message
 
 def MainMessages(request):
     messages = Message.objects.all()
-    return render(request, 'message_board/Main_Message_Board.html', {messages: messages})
+    return render(request, 'message_board/Main_Message_Board.html', {'messages': messages})
 
 
 def Messages(request):

@@ -1,10 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
 
-</body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           Customise Users
+        </title>
+        <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
+        <meta http-equiv="refresh" content="30">
+        <style>
+
+              .nav4{
+
+                background-color: white;
+                height: 100px;
+                width:100%;
+                top: 0;
+                left: 0;
+                overflow: hidden
+              }
+
+            * {box-sizing: border-box;}
+
+              body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+              }
+
+            .topnav {
+                overflow: hidden;
+                background-color: #e9e9e9;
+            }
+
+            .topnav a {
+                float: left;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 15px;
+            }
+
+
+
+            .topnav a.active {
+                background-color: #010641;
+                color: white;
+            }
+
+            .topnav .search-container {
+                float: right;
+            }
+
+            .topnav input[type=text] {
+                padding: 8px;
+                margin-top: 5px;
+                font-size: 17px;
+                border: none;
+            }
+
+            .topnav .search-container button {
+                float: right;
+                padding: 6px;
+                margin-top: 7px;
+                margin-right: 0px;
+                background: #f3c800;
+                font-size: 17px;
+                border: none;
+                cursor: pointer;
+            }
+
+            .topnav .search-container button:hover {
+                background: #f3c800;
+            }
+
+
+
+            @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+            .topnav a, .topnav input[type=text], .topnav .search-container button {
+                float: right;
+                display: block;
+                text-align: left;
+                width: 80%;
+                margin: 0;
+                padding: 16px;
+            }
+            .topnav input[type=text] {
+                border: 1px solid #1924cc;
+            }
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+    {% if  user.is_staff%}
+        <div class="nav4">
+            <a  href='Main_Message_Board.html' ><img class="logo" src={%  static "login/index.png" %}></a>
+            <a class="profile" href='Main_Message_Board.html'>
+                 <img  class="profile_pic" src="login/user.png">
+            </a>
+        </div>
+
+        <div class="label">
+            <center>
+            <strong><p>
+                        Customise Clubs
+                    </p>
+            </strong>
+            </center>
+        </div>
+
+        <div>
+            <div class="topnav">
+                <a class="active" href="/administration/clubs/create">Add Club</a>
+            </div>
+
+            <table>
+                    <tr>
+                    <th>Name</th>
+{#                     <th>Remove User</th>#}
+                    </tr>
+                    {%for club in clubs %}
+                        <tr>
+                        <td><a href="/administration/clubs/{{ club.club_id}}/">{{ club.club_name }}</a>
+                        </td>
+                        </tr>
+                    {% empty %}
+                        This is empty
+                    {% endfor %}
+            </table>
+        </div>
+    {% else  %}
+        {# TODO: Put better UI here#}
+        Sorry but only users with admin privileges are allowed to use this page
+    {% endif %}
+    </body>
 </html>

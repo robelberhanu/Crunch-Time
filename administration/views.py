@@ -6,14 +6,14 @@ from django.template import loader
 from django.contrib.auth.decorators import login_required
 
 from users.forms import CustomUserCreationForm
-from .forms import ClubCreationForm
+from .forms import ClubCreationForm, StudentClubRelationCreationForm
 
 
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, get_object_or_404
 from users.models import CustomUser
-from main.models import Club
+from main.models import Club, StudentClubRelation, Portfolio
 
 
 # Redirect user to login page if not logged in
@@ -74,12 +74,29 @@ def user(request, user_id):
 
 def manage_clubs(request):
     clubs = Club.objects.all()
-    return render(request, 'administration/manage_clubs.html', {clubs: clubs})
+    return render(request, 'administration/manage_clubs.html', {'clubs': clubs})
 
 
 def club(request, club_id):
-    currClub = Club.objects.get(username=club_id)
-    return render(request, 'administration/club.html', {club: currClub})
+    currClub = Club.objects.get(club_id=club_id)
+    studentClubRelations = StudentClubRelation.objects.filter(club_id=club_id)
+    # Make this work...
+    if request.method == 'POST':
+        form = StudentClubRelationCreationForm(request.POST)
+        if form.is_valid():
+            form.save(commit=False)
+            user = CustomUser.objects.get(pk=form.data.get('user_id'))
+            portfolio = Portfolio.objects.get(pk=form.data.get('portfolio_id'))
+            # Dunno if this is valid
+            curr_studentClubRelation = StudentClubRelation(user_id=user, portfolio_id=portfolio, club_id= currClub)
+            # curr_user = authenticate(username=username, password=raw_password)
+            # basically says that the user has no password - used for custom authentication i.e. LDAP
+            # curr_user.set_unusable_password()
+            curr_studentClubRelation.save()
+            # return redirect(manage_clubs)
+    else:
+        form = StudentClubRelationCreationForm()
+    return render(request, 'administration/club.html', {'club': currClub, 'studentClubRelations': studentClubRelations, 'form': form})
 
 
 def create_club(request):
