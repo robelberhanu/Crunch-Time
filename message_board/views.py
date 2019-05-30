@@ -11,6 +11,9 @@ import users.models
 
 def messageBoard(request):
     messages = Message.objects.all()
+    if not (request.user.is_superuser or request.user.is_staff):
+        # your logic here
+        return redirect("mainMessageBoardView")  # or your url name
     return render(request, 'message_board/Admin_message_board.html', {'messages': messages})
 
 
