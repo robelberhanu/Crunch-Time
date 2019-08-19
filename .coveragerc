@@ -2,5 +2,10 @@
 omit =
     #Is the actual test file so thus is illogical to test against
     */tests.py
-    #Django file not ours
+    #Django files not ours
     manage.py
+    WSCSite/wsgi.py
+    #File isn't used
+    WSCSite/middleware/login_required_middleware.py
+    #Folder isn't used
+    utils/*
