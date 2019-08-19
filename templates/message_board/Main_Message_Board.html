@@ -7,6 +7,8 @@
            Main Message-Board
         </title>
         <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />
+
         <meta http-equiv="refresh" content="30">
     </head>
 
@@ -65,6 +67,37 @@
 
             </table>
 
+
+
+{#   This is the pagenation for customize users     #}
+        <section>
+            <nav class="pagination" role="navigation" aria-label="pagination">
+         <a class="pagination-previous">Previous</a>
+         <a class="pagination-next">Next page</a>
+         <ul class="pagination-list">
+           <li>
+             <a class="pagination-link" aria-label="Goto page 1">1</a>
+           </li>
+          <li>
+            <a class="pagination-link" aria-label="Goto page 2">2</a>
+           </li>
+         </ul>
+       </nav>
+
+        </section>
+
+
+{#                    Footer class #}
+<section>
+        <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>
+                        <strong>Wits Sport</strong>  <a href=" https://www.wits.ac.za/sport/">For more sports info click here </a>. The source code is licensed by the University of Witwatersrand
+                        <a href=https://libguides.wits.ac.za/c.php?g=145347&p=953429 </a>. The website content
+                        is licensed 2019, <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+                    </p>
+                </div>
+            </footer>
             <script>
 
                    function openNav() {

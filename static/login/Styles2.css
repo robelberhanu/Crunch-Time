@@ -155,7 +155,7 @@ body {
   }
 
   .active {
-    background-color: #4CAF50;
+    background-color: white;
   }
 
   /* horizontal side bar ends here */
@@ -164,7 +164,7 @@ body {
 
 /* Add an active class to the active dropdown button */
 .active {
-  background-color: green;
+  background-color: white;
   color: white;
 
 }
