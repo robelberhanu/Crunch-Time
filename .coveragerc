@@ -1,0 +1,6 @@
+[run]
+omit =
+    #Is the actual test file so thus is illogical to test against
+    */tests.py
+    #Django file not ours
+    manage.py
