@@ -61,3 +61,10 @@ def SendMessage(request):
 
 def CustomiseClubs(request):
     return render(request, 'message_board/Customise_Clubs.html')
+
+
+def MainMessages(request):
+    return render(request, '/templates/message_board/Main_Message_Board.html')
+
+def UserProfile(request):
+    return render(request, '/templates/message_board/User_Profile.html')
