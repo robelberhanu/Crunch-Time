@@ -9,7 +9,9 @@ urlpatterns = [
     path('Manage_Clubs.html', views.ManageClubs, name='ManageClubs'),
     path('Customise_Users.html', views.CustomiseUsers, name='CustomiseUsers'),
     path('Send_Message.html', views.SendMessage, name='SendMessage'),
-    path('Customise_Clubs.html', views.CustomiseClubs, name='CustomiseClub')
+    path('Customise_Clubs.html', views.CustomiseClubs, name='CustomiseClub'),
+    path('Main_Message_Board.html', views.MainMessages, name='MainMessages'),
+    path('User_Profile.html', views.UserProfile, name='UserProfile')
 
     # arguments for path function -
     # route (required)
