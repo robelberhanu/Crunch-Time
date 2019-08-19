@@ -36,7 +36,6 @@
         <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />
-        <meta http-equiv="refresh" content="30">
         <style>
 
               .nav4{
@@ -123,6 +122,18 @@
             }
             }
 
+            .button {
+                background-color: #0004af; /* Green */
+                border: none;
+                color: white;
+                padding: 10px 12px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                float: right;
+}
+
         </style>
 
     </head>
@@ -171,8 +182,6 @@
 
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">My Clubs</a>
-                    <a href="#">My Portfolio</a>
                     <a href="/administration/users/create">Add User</a>
                     <a href="{% url 'logout' %}">LogOut</a>
 
@@ -182,10 +191,9 @@
                  <div id="main">
                  <ul>
                     <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
-                    <li><a href="#">My Messages</a></li>
-                    <li><a href="#">My Clubs</a></li>
-                    <li><a href="#">Portfolio</a></li>
                    </ul>
+
+                 <button class="button">Remove Selected User</button>
                 </div>
 
 
@@ -197,7 +205,7 @@
                     <th>Email Address</th>
                     <th>Contact No</th>
                     <th>ID Number</th>
-{#                     <th>Remove User</th>#}
+                     <th>Remove User</th>
                     </tr>
 
 {#                    {%for users in username_list %}#}
@@ -220,6 +228,8 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.contact_number }}</td>
                         <td>{{ user.id_number }}</td>
+                        <td><input type="checkbox" name="name1" /></td>
+
                         </tr>
                     {% endfor %}
             </table>
