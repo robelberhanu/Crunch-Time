@@ -24,6 +24,7 @@ class StudentClubRelation(models.Model):
     portfolio_id = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
 
 
+
 class WitsSportExecutive(models.Model):
     user_id = models.CharField(max_length=10)
     portfolio_id = models.ForeignKey(Portfolio, on_delete=models.CASCADE)

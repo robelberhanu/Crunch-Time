@@ -27,7 +27,7 @@ def manage_users(request):
     # usernames = user_list.values_list('username', flat=True),
     # return HttpResponse(template.render(context, request))
     # , 'usernames': usernames} 'username_list': username_list,
-    return render(request, 'administration/manage_users.html', { 'user_list': user_list})
+    return render(request, 'administration/manage_users.html', {'user_list': user_list})
 
 
 def create_user(request):
@@ -68,7 +68,7 @@ def deactivate_user(request, username):
 
 def user(request, user_id):
     currUser = CustomUser.objects.get(username=user_id)
-    return render(request, 'administration/user.html', {user:currUser})
+    return render(request, 'administration/user.html', {user: currUser})
     # return HttpResponse("You're looking at user %s." % user_id)
 
 

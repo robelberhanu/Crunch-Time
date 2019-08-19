@@ -7,6 +7,7 @@ from message_board.models import Message
 # Redirect user to login page if not logged in
 @login_required(login_url='/accounts/login/')
 
+
 def MainMessages(request):
     messages = Message.objects.all()
     return render(request, 'message_board/Main_Message_Board.html', {'messages': messages})
