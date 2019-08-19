@@ -5,8 +5,20 @@
 db.sqlite3
 media
 
-# Byte-compiled / optimized / DLL files
+# Migrations
+**/migrations/
+#administration/migrations
+#main/migrations
+
+#Cache
 __pycache__/
+**/__pycache__/
+**/**/__pycache__
+
+#tests/__pycache__/
+#main/__pycache__/
+
+# Byte-compiled / optimized / DLL files
 *.py[cod]
 
 # Backup files #
@@ -96,9 +108,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# pycache
-WSCSite/__pycache__
 
 # Sublime Text #
 *.tmlanguage.cache
