@@ -9,7 +9,7 @@ urlpatterns = [
     # ex: /administration/users/create
     path('users/create/', views.create_user, name='create_user'),
     # ex: /administration/user/1391994/
-    path('users/<str:user_id>/', views.user, name='user'),
+    path('users/<str:user_id>/', views.UserUpdateView.as_view(), name='user'),
     # ex: /administration/clubs
     path('clubs/', views.manage_clubs, name='manage_clubs'),
     # ex: /administration/clubs/create
