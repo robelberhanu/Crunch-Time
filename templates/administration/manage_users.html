@@ -205,7 +205,7 @@
                     <th>Email Address</th>
                     <th>Contact No</th>
                     <th>ID Number</th>
-                     <th>Remove User</th>
+                    <th>Remove User</th>
                     </tr>
 
 {#                    {%for users in username_list %}#}
@@ -228,30 +228,32 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.contact_number }}</td>
                         <td>{{ user.id_number }}</td>
-                        <td><input type="checkbox" name="name1" /></td>
-
+                        <td style="vertical-align: middle;">
+                            <input type="checkbox" name="{{ user.username }}_CheckBox" style="width:12px;"/>
+                        </td>
                         </tr>
                     {% endfor %}
             </table>
         </div>
 
 
+{#Please stop...#}
 {#   This is the pagenation for customize users     #}
-        <section>
-            <nav class="pagination" role="navigation" aria-label="pagination">
-         <a class="pagination-previous">Previous</a>
-         <a class="pagination-next">Next page</a>
-         <ul class="pagination-list">
-           <li>
-             <a class="pagination-link" aria-label="Goto page 1">1</a>
-           </li>
-          <li>
-            <a class="pagination-link" aria-label="Goto page 2">2</a>
-           </li>
-         </ul>
-       </nav>
-
-        </section>
+{#        <section>#}
+{#            <nav class="pagination" role="navigation" aria-label="pagination">#}
+{#         <a class="pagination-previous">Previous</a>#}
+{#         <a class="pagination-next">Next page</a>#}
+{#         <ul class="pagination-list">#}
+{#           <li>#}
+{#             <a class="pagination-link" aria-label="Goto page 1">1</a>#}
+{#           </li>#}
+{#          <li>#}
+{#            <a class="pagination-link" aria-label="Goto page 2">2</a>#}
+{#           </li>#}
+{#         </ul>#}
+{#       </nav>#}
+{##}
+{#        </section>#}
 
 
 {#                    Footer class #}
@@ -283,8 +285,6 @@
               document.getElementById("main").style.marginLeft= "0";
               document.body.style.backgroundColor = "white";
             }
-
-
             </script>
 
 
