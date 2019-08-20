@@ -1,9 +1,10 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.checks import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.template import loader
 from django.contrib.auth.decorators import login_required
+from django.views.generic import DeleteView
 
 from users.forms import CustomUserCreationForm
 from .forms import ClubCreationForm, StudentClubRelationCreationForm
@@ -79,10 +80,14 @@ def manage_clubs(request):
 
 def club(request, club_id):
     currClub = Club.objects.get(club_id=club_id)
+    club_id = club_id
     studentClubRelations = StudentClubRelation.objects.filter(club_id=club_id)
     # Make this work...
     if request.method == 'POST':
-        form = StudentClubRelationCreationForm(request.POST)
+        form = StudentClubRelationCreationForm(request.POST,club_id = club_id)
+        # kwargs = form.get_form_kwargs()
+        # kwargs.update({'club_id': club_id})
+        # form.fields.club_id
         if form.is_valid():
             form.save(commit=False)
             user = CustomUser.objects.get(pk=form.data.get('user_id'))
@@ -98,6 +103,10 @@ def club(request, club_id):
         form = StudentClubRelationCreationForm()
     return render(request, 'administration/club.html', {'club': currClub, 'studentClubRelations': studentClubRelations, 'form': form})
 
+    # def get_form_kwargs(self):
+    #     kwargs = super(club, self).get_form_kwargs()
+    #     kwargs.update({'club_id': self.club_id})
+    #     return kwargs
 
 def create_club(request):
     if request.method == 'POST':
@@ -108,4 +117,15 @@ def create_club(request):
     else:
         form = ClubCreationForm()
     return render(request, 'administration/create_club.html', {'form': form})
+
+
+# class DeleteClub(DeleteView):
+#     model = Club
+
+
+
+
+
+
+
 

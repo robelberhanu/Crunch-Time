@@ -132,17 +132,24 @@
 {#            <div class="topnav">#}
 {#                <a class="active" href="/administration/clubs/create">Add Club</a>#}
 {#            </div>#}
+            <div class="topnav">
+{#                <a class="active" href="/Admin_message_board/">Admin Message Board</a>#}
+                <a class="active" href="#">Remove Selected</a> {#Probs just call a function#}
+            </div>
 
             <table>
                     <tr>
                     <th>Name</th>
                     <th>Portfolio</th>
-{#                     <th>Remove User</th>#}
+                    <th>Selected</th>
                     </tr>
                     {%for studentClubRelation in studentClubRelations %}
                         <tr>
                         <td>{{ studentClubRelation.user_id }}</td>
                         <td>{{ studentClubRelation.portfolio_id}}</td>
+                        <td style="vertical-align: middle;">
+                            <input type="checkbox" name="{{ studentClubRelation.user_id }}_CheckBox" style="width:12px;"/>
+                        </td>
                         </tr>
                     {% empty %}
                         This is empty

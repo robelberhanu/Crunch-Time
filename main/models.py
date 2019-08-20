@@ -27,6 +27,9 @@ class StudentClubRelation(models.Model):
     class Meta:
         unique_together = ('club_id', 'user_id',)  # Table cannot have multiple rows that share the same club_id and user_id combination
 
+    def __str__(self):
+        return self.user_id.username + "," + self.club_id.club_name + "," + self.portfolio_id.portfolio_name
+
 
 class WitsSportExecutive(models.Model):
     user_id = models.CharField(max_length=10)
