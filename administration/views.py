@@ -4,8 +4,8 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import redirect
 from django.template import loader
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DeleteView, UpdateView
-
+from django.views.generic import DeleteView
+from django.views.generic.edit import UpdateView
 
 from users.forms import CustomUserCreationForm
 from .forms import ClubCreationForm, StudentClubRelationCreationForm, EditUserForm
@@ -124,7 +124,6 @@ def club(request, club_id):
     #     kwargs.update({'club_id': self.club_id})
     #     return kwargs
 
-
 def create_club(request):
     if request.method == 'POST':
         form = ClubCreationForm(request.POST)
@@ -136,11 +135,8 @@ def create_club(request):
     return render(request, 'administration/create_club.html', {'form': form})
 
 
-class UserUpdateView(UpdateView):
-    model = CustomUser
-    fields = ['name']
-    template_name = 'administration/club.html'
-    # template_name_suffix = '_update_form'
+# class DeleteClub(DeleteView):
+#     model = Club
 
 
 
