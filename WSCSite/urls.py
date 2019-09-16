@@ -28,6 +28,8 @@ urlpatterns = [
     # path('registration/', include('registration.urls')),
     path('Main_Message_Board/', include('user_message_board.urls')), # Fix cause this doesn't work or make sense
 
+    path('users/', include('users.urls')),
+    
     path('administration/', include('administration.urls')),
 
     # path()

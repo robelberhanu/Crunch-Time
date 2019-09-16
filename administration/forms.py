@@ -60,6 +60,11 @@ class StudentClubRelationCreationForm(ModelForm):
         # objects = StudentClubRelation.objects.filter()
 
 
+class EditUserForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'first_name', 'last_name', 'email', 'contact_number', 'id_number']
+
 # def delete_club_member(request,*pks):
 #     for pk in pks:
 #         m = StudentClubRelation.objects.get(pk=id)

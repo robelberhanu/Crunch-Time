@@ -8,7 +8,7 @@ from django.views.generic import DeleteView, UpdateView
 
 
 from users.forms import CustomUserCreationForm
-from .forms import ClubCreationForm, StudentClubRelationCreationForm
+from .forms import ClubCreationForm, StudentClubRelationCreationForm, EditUserForm
 
 
 from django.contrib.auth import authenticate
@@ -72,6 +72,21 @@ def user(request, user_id):
     currUser = CustomUser.objects.get(username=user_id)
     return render(request, 'administration/user.html', {user: currUser})
     # return HttpResponse("You're looking at user %s." % user_id)
+
+
+def edit_user(request, user_id):
+    instance = get_object_or_404(CustomUser, username=user_id)
+    form = EditUserForm(request.POST or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return redirect('manage_users')
+    return render(request, 'administration/edit_user.html', {'form': form})
+
+
+# class edit_user_view(UpdateView):
+#     model = CustomUser
+#     fields = ['username']
+#     template_name = 'administration/edit_user.html'
 
 
 def manage_clubs(request):

@@ -59,6 +59,11 @@ def SendMessage(request):
     return render(request, 'message_board/Send_Message.html')
 
 
+def MessageBoard(request):
+
+    return render(request, 'message_board/Main_Message_Board.html')
+
+
 def CustomiseClubs(request):
     return render(request, 'message_board/Customise_Clubs.html')
 
