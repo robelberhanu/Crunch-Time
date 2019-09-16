@@ -76,11 +76,12 @@ def user(request, user_id):
 
 def edit_user(request, user_id):
     instance = get_object_or_404(CustomUser, username=user_id)
+    curr_user = CustomUser.objects.get(username=user_id)
     form = EditUserForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
         return redirect('manage_users')
-    return render(request, 'administration/edit_user.html', {'form': form})
+    return render(request, 'administration/edit_user.html', {'form': form, 'currUser': curr_user})
 
 
 # class edit_user_view(UpdateView):

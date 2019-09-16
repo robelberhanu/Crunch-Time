@@ -1,23 +1,83 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>Title</title>
-        <p>UserName: {{ customUser.username }}</p>
+
+    <link rel="stylesheet" href="{% static "login/Styles2.css" %}">
+{#       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />#}
+
+{#    <style>#}
+{##}
+{#            .nav5{#}
+{#                 background-color: white;#}
+{#                height: 100px;#}
+{#                width:100%;#}
+{#                top: 0;#}
+{#                left: 0;#}
+{#                overflow: hidden#}
+{#            }#}
+{##}
+{##}
+{#            input[type=text], input[type=email], input[type=number], select {#}
+{##}
+{#                width: 100%;#}
+{#                padding: 12px 20px;#}
+{#                margin: 8px 0;#}
+{#                display: inline-block;#}
+{#                border: 1px solid #ccc;#}
+{#                border-radius: 4px;#}
+{#                box-sizing: border-box;#}
+{##}
+{#            }#}
+{##}
+{#             input[type=submit] {#}
+{#                width: 100%;#}
+{#                background-color:rgb(8, 3, 70) ;#}
+{#                color: white;#}
+{#                padding: 14px 20px;#}
+{#                margin: 8px 0;#}
+{#                border: none;#}
+{#                border-radius: 4px;#}
+{#                cursor: pointer;#}
+{#                left: 50%;#}
+{#    }#}
+{##}
+{#          input[type=submit]:hover {background-color: rgb(8, 3, 70);#}
+{#    }#}
+{##}
+{##}
+{#            .centre-container{#}
+{#                margin: 0;#}
+{#                position: absolute;#}
+{#                left: 50%;#}
+{#                top: 70%;#}
+{#                -ms-transform: translate(-50%, -50%);#}
+{#                transform: translate(-50%, -50%);#}
+{##}
+{#            }#}
+{##}
+{##}
+{#    </style>#}
+</head>
+<body>
+    {% include 'includes/header.html' %}
+    <h1>{{ currUser.username }}</h1>
+    <div class="centre-container">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
 {#            {% form.username %}#}
 {#            {% for f in form %}#}
-{#                {% if f != form.password1 and f != form.password2%}#}
+{#                {% if f != form.id_number and f != form.username%}#}
 {#                    {{ f.label_tag }}#}
 {#                    {{ f }}<br>#}
 {#                {% endif %}#}
 {#            {% endfor %}#}
-            <input type="submit" value="Create User">
+            <input type="submit" value="Update User">
         </form>
-</head>
-<body>
-
+    </div>
 </body>
 </html>

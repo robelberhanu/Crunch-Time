@@ -4,26 +4,27 @@
 <html>
 <head>
     <title>
-        Admin Message-Board
+        WSC Site
     </title>
     <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
 {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />#}
 
 
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.js"
-            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous">
-    </script>
-    <script>
-        $(function(){
-            $("#header").load("WSCHeader.html");
-        });
-    </script>
+{#    <script#}
+{#            src="https://code.jquery.com/jquery-3.3.1.js"#}
+{#            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous">#}
+{#    </script>#}
+{#    <script>#}
+{#        $(function(){#}
+{#            $("#header").load("WSCHeader.html");#}
+{#        });#}
+{#    </script>#}
 </head>
 
 <body>
 
-<div id="header"></div>
+{% include 'includes/header.html' %}
+
 
 
 <div class="content">

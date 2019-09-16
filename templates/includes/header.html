@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+    <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
+</head>
+<body>
+    <div class="nav">
+        <a href='{% url 'home' %}' ><img class="logo" src={%  static "login/index.png" %}></a>
+        <a class="profile" href='{% url 'user_profile' %}'>
+            <img  class="profile_pic" src="{%  static "login/user.png" %}">
+        </a>
+    </div>
+</body>
+</html>

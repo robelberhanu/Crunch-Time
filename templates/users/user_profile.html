@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
 {#    <p>UserName: {{ customUser.username }}</p>#}
-    <p>Curr User: {{ user.username }}</p>
 </head>
 <body>
-
+{% include 'includes/header.html' %}
+<div>
+    <p>Curr User: {{ user.username }}</p>
+</div>
 </body>
 </html>
