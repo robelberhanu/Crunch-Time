@@ -2,76 +2,76 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-           Customise Users
-        </title>
-        <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />
-        <style>
+<head>
+    <title>
+        Customise Clubs
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
+    {#        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />#}
+    <style>
 
-              .nav4{
+        .nav4{
 
-                background-color: white;
-                height: 100px;
-                width:100%;
-                top: 0;
-                left: 0;
-                overflow: hidden
-              }
+            background-color: white;
+            height: 100px;
+            width:100%;
+            top: 0;
+            left: 0;
+            overflow: hidden
+        }
 
-            * {box-sizing: border-box;}
+        * {box-sizing: border-box;}
 
-              body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-              }
-
-
-            .topnav a {
-                float: left;
-                display: block;
-                color: black;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 15px;
-            }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
 
-
-            .topnav a {
-                background-color: #010641;
-                {#color: white;#}
-            }
-
-
-            .topnav input[type=text] {
-                padding: 8px;
-                margin-top: 5px;
-                font-size: 17px;
-                border: none;
-            }
-
-            .topnav .search-container button {
-                float: right;
-                padding: 6px;
-                margin-top: 7px;
-                margin-right: 0px;
-                background: #f3c800;
-                font-size: 17px;
-                border: none;
-                cursor: pointer;
-            }
-
-            .topnav .search-container button:hover {
-                background: #f3c800;
-            }
+        .topnav a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 15px;
+        }
 
 
 
-            @media screen and (max-width: 600px) {
+        .topnav a {
+            background-color: #010641;
+        {#color: white;#}
+        }
+
+
+        .topnav input[type=text] {
+            padding: 8px;
+            margin-top: 5px;
+            font-size: 17px;
+            border: none;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px;
+            margin-top: 7px;
+            margin-right: 0px;
+            background: #f3c800;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #f3c800;
+        }
+
+
+
+        @media screen and (max-width: 600px) {
             .topnav .search-container {
                 float: none;
             }
@@ -86,9 +86,9 @@
             .topnav input[type=text] {
                 border: 1px solid #1924cc;
             }
-            }
+        }
 
-            .mybutton {
+        .button {
             background-color: #02054d;
             border: none;
             color: white;
@@ -102,84 +102,81 @@
             float: right;
         }
 
-        </style>
+    </style>
 
-    </head>
+</head>
 
-    <body>
-    {% if  user.is_staff%}
-        <div class="nav4">
-            <a  href='{% url 'messageBoardView' %}' ><img class="logo" src={%  static "login/index.png" %}></a>
-            <a class="profile" href='{% url 'messageBoardView' %}'>
-                 <img  class="profile_pic" src="login/user.png">
-            </a>
-        </div>
+<body>
+{% if  user.is_staff%}
+    <div class="nav4">
+        <a  href='{% url 'messageBoardView' %}' ><img class="logo" src={%  static "login/index.png" %}></a>
+        <a class="profile" href='{% url 'messageBoardView' %}'>
+            <img  class="profile_pic" src="login/user.png">
+        </a>
+    </div>
 
-        <div class="label">
-            <center>
+    <div class="label">
+        <center>
             <strong><p>
-                        Customise Clubs
-                    </p>
+                Customise Clubs
+            </p>
             </strong>
-            </center>
-        </div>
+        </center>
+    </div>
 
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="/administration/users">Customise Users</a>
-            <a href="/Admin_message_board/">Admin Message Board</a>
-            <a href="/administration/clubs/create">Add Club</a>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/administration/users">Customise Users</a>
+        <a href="/Admin_message_board/">Admin Message Board</a>
+        <a href="/administration/clubs/create">Add Club</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
 
-            <a href="{% url 'logout' %}">Logout</a>
-      </div>
 
+    <button class="button">Remove</button>
 
-        <button class="mybutton">Remove Club</button>
-
-        <div id="main">
-         <ul>
+    <div id="main">
+        <ul>
             <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
 
-           </ul>
-        </div>
+        </ul>
+    </div>
 
-        <div>
+    <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Remove Selected</th>
+            </tr>
+            {%for club in clubs %}
+                <tr>
+                    <td><a href="/administration/clubs/{{ club.club_id}}/">{{ club.club_name }}</a></td>
+                    <td style="vertical-align: middle;">
+                        <input type="checkbox" name="{{ club.club_id }}_CheckBox" style="width:12px;"/>
+                    </td>
+                </tr>
+            {% empty %}
+                This is empty
+            {% endfor %}
+        </table>
+    </div>
+{% else  %}
+    {# TODO: Put better UI here#}
+    Sorry but only users with admin privileges are allowed to use this page
+{% endif %}
 
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
 
-            <table>
-                    <tr>
-                    <th>Name</th>
-                    <th>Remove Selected</th>
-                    </tr>
-                    {%for club in clubs %}
-                        <tr>
-                        <td><a href="/administration/clubs/{{ club.club_id}}/">{{ club.club_name }}</a></td>
-                        <td style="vertical-align: middle;">
-                            <input type="checkbox" name="{{ club.club_id }}_CheckBox" style="width:12px;"/>
-                        </td>
-                        </tr>
-                    {% empty %}
-                        This is empty
-                    {% endfor %}
-            </table>
-        </div>
-    {% else  %}
-        {# TODO: Put better UI here#}
-        Sorry but only users with admin privileges are allowed to use this page
-    {% endif %}
-
-    <script>
-        function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
-          document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-        }
-
-        function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
-          document.body.style.backgroundColor = "white";
-        }
-    </script>
-    </body>
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+</script>
+</body>
 </html>
