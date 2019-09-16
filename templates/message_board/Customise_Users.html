@@ -2,82 +2,83 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-           Customise Users
-        </title>
-        <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
-        <style>
+<head>
+    <title>
+        Customise Users
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />
+    <style>
 
-              .nav4{
+        .nav4{
 
-                background-color: white;
-                height: 100px;
-                width:100%;
-                top: 0;
-                left: 0;
-                overflow: hidden
-              }
+            background-color: white;
+            height: 100px;
+            width:100%;
+            top: 0;
+            left: 0;
+            overflow: hidden
+        }
 
-            * {box-sizing: border-box;}
+        * {box-sizing: border-box;}
 
-              body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-              }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-            .topnav {
-                overflow: hidden;
-                background-color: #e9e9e9;
-            }
+        .topnav {
+            overflow: hidden;
+            background-color: #e9e9e9;
+        }
 
-            .topnav a {
-                float: left;
-                display: block;
-                color: black;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 15px;
-            }
-
-
-
-            .topnav a.active {
-                background-color: #010641;
-                color: white;
-            }
-
-            .topnav .search-container {
-                float: right;
-            }
-
-            .topnav input[type=text] {
-                padding: 8px;
-                margin-top: 5px;
-                font-size: 17px;
-                border: none;
-            }
-
-            .topnav .search-container button {
-                float: right;
-                padding: 6px;
-                margin-top: 7px;
-                margin-right: 0px;
-                background: #f3c800;
-                font-size: 17px;
-                border: none;
-                cursor: pointer;
-            }
-
-            .topnav .search-container button:hover {
-                background: #f3c800;
-            }
+        .topnav a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 15px;
+        }
 
 
 
-            @media screen and (max-width: 600px) {
+        .topnav a.active {
+            background-color: #010641;
+            color: white;
+        }
+
+        .topnav .search-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 8px;
+            margin-top: 5px;
+            font-size: 17px;
+            border: none;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px;
+            margin-top: 7px;
+            margin-right: 0px;
+            background: #f3c800;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #f3c800;
+        }
+
+
+
+        @media screen and (max-width: 600px) {
             .topnav .search-container {
                 float: none;
             }
@@ -92,71 +93,71 @@
             .topnav input[type=text] {
                 border: 1px solid #1924cc;
             }
-            }
+        }
 
-        </style>
+    </style>
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <div class="nav4">
-            <a  href='Main_Message_Board.html' ><img class="logo" src={%  static "login/index.png" %}></a>
-            <a class="profile" href='Main_Message_Board.html'>
-                 <img  class="profile_pic" src="login/user.png">
-            </a>
+<div class="nav4">
+    <a  href='Main_Message_Board.html' ><img class="logo" src={%  static "login/index.png" %}></a>
+    <a class="profile" href='Main_Message_Board.html'>
+        <img  class="profile_pic" src="login/user.png">
+    </a>
+</div>
+
+<div class="label">
+    <center>
+        <strong><p>
+            CUSTOMISE USERS
+        </p>
+        </strong>
+    </center>
+</div>
+
+<div>
+
+    <div class="topnav">
+        <a class="active" href="Create_Users.html">Add User</a>
+
+        <div class="search-container">
+            <form action="#">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit">Search Club</button>
+            </form>
         </div>
+    </div>
 
-        <div class="label">
-                <center>
-                <strong><p>
-                            CUSTOMISE USERS
-                        </p>
-                </strong>
-                    </center>
-            </div>
+    <table>
+        <tr>
+            <th>User Name</th>
 
-            <div>
-
-                <div class="topnav">
-                    <a class="active" href="Create_Users.html">Add User</a>
-
-                    <div class="search-container">
-                        <form action="#">
-                            <input type="text" placeholder="Search.." name="search">
-                            <button type="submit">Search Club</button>
-                        </form>
-                    </div>
-                </div>
-
-           <table>
-                    <tr>
-                    <th>User Name</th>
-
-                    <th>Portfolio</th>
-                     <th>Remove User</th>
-                    </tr>
-                    <tr>
-                        <td ><a href="#">Peter</a>
-                        <td>$100</td>
-                        <td ><a href="#">Remove</a>
-                    </tr>
-                    <tr>
-                        <td ><a href="#">Robel</a></td>
-                        <td>$150</td>
-                        <td ><a href="#">Remove</a>
-                    </tr>
-                    <tr>
-                        <td ><a href="#">Joe</a></td>
-                        <td>$300</td>
-                        <td ><a href="#">Remove</a>
-                    </tr>
-                    <tr>
-                        <td ><a href="#">Terence</a></td>
-                        <td>$250</td>
-                         <td ><a href="#">Remove</a>
-                    </tr>
-                  </table>
-            </div>
-    </body>
+            <th>Portfolio</th>
+            <th>Remove User</th>
+        </tr>
+        <tr>
+            <td ><a href="#">Peter</a>
+            <td>$100</td>
+            <td ><a href="#">Remove</a>
+        </tr>
+        <tr>
+            <td ><a href="#">Robel</a></td>
+            <td>$150</td>
+            <td ><a href="#">Remove</a>
+        </tr>
+        <tr>
+            <td ><a href="#">Joe</a></td>
+            <td>$300</td>
+            <td ><a href="#">Remove</a>
+        </tr>
+        <tr>
+            <td ><a href="#">Terence</a></td>
+            <td>$250</td>
+            <td ><a href="#">Remove</a>
+        </tr>
+    </table>
+</div>
+</body>
 </html>

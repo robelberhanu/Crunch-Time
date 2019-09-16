@@ -11,7 +11,10 @@ urlpatterns = [
     path('Send_Message.html', views.SendMessage, name='SendMessage'),
     path('Customise_Clubs.html', views.CustomiseClubs, name='CustomiseClub'),
     path('Main_Message_Board.html', views.MainMessages, name='MainMessages'),
-    path('User_Profile.html', views.UserProfile, name='UserProfile')
+    path('User_Profile.html', views.UserProfile, name='UserProfile'),
+    path('WSCHeader.html', views.WSCHeader, name='WSCHeader'),
+    path('Treasurer-Messages.html', views.Treasurer, name='Treasurer'),
+    path('Chair-Person-Messages.html', views.ChairPerson, name='Chair-Person'),
 
     # arguments for path function -
     # route (required)

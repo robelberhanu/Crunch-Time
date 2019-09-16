@@ -64,7 +64,16 @@ def CustomiseClubs(request):
 
 
 def MainMessages(request):
-    return render(request, '/templates/message_board/Main_Message_Board.html')
+    return render(request, 'message_board/Main_Message_Board.html')
 
 def UserProfile(request):
-    return render(request, '/templates/message_board/User_Profile.html')
+    return render(request, 'message_board/User_Profile.html')
+
+def WSCHeader(request):
+    return render(request, 'WSCHeader.html')
+
+def ChairPerson(request):
+    return render(request, 'message_board/Chair-Person-Messages.html')
+
+def Treasurer(request):
+    return render(request, 'message_board/Treasurer-Messages.html')
