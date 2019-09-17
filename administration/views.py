@@ -61,11 +61,11 @@ def create_user(request):
 
 
 # instead of deleting a user to avoid issues with the database - rather delete for the moment
-def deactivate_user(request, username):
-    obj = CustomUser.objects.get(pk=username)
-    obj.is_active = False
-    obj.save()
-    return render(request, 'administration/manage_users.html')
+# def deactivate_user(request, username):
+#     obj = CustomUser.objects.get(pk=username)
+#     obj.is_active = False
+#     obj.save()
+#     return render(request, 'administration/manage_users.html')
 
 
 def user(request, user_id):
