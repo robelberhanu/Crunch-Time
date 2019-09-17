@@ -7,17 +7,31 @@ from django.conf import settings
 from django.db import models
 import datetime
 import users.models
+import main.models
+from users.models import CustomUser
 # Create your views here.
 
 # Redirect user to login page if not logged in
 @login_required(login_url='/accounts/login/')
 
 def messageBoard(request):
+
+    messageBoardNames = []
+    studentClubEntities = main.models.StudentClubRelation(user_id=CustomUser.username).objects.all()
+    for entity in studentClubEntities:
+        clubName = main.models.Club(club_id=entity.club_id).objects.first().club_name
+        portfolioName = main.models.Portfolio(position_id=entity.position_id).objects.first().portfolio_name
+        if clubName not in messageBoardNames:
+            messageBoardNames.append(clubName)
+        if portfolioName not in messageBoardNames:
+            messageBoardNames.append(portfolioName)
+
     messages = Message.objects.all()
+
     if not (request.user.is_superuser or request.user.is_staff):
         # your logic here
         return redirect("mainMessageBoardView")  # or your url name
-    return render(request, 'message_board/Admin_message_board.html', {'messages': messages})
+    return render(request, 'message_board/Admin_message_board.html', {'messages': messages, 'messageboards': messageBoardNames})
 
 
 def Messages(request):
