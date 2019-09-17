@@ -125,6 +125,7 @@ def club(request, club_id):
     #     kwargs.update({'club_id': self.club_id})
     #     return kwargs
 
+
 def create_club(request):
     if request.method == 'POST':
         form = ClubCreationForm(request.POST)

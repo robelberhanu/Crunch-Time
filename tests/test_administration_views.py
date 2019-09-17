@@ -1,5 +1,6 @@
 from django.test import TestCase, Client
 
+
 class TestAdministrationViews(TestCase):
 
     def setUp(self):

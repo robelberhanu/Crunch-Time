@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # custom user model
     'users.apps.UsersConfig',
     'administration.apps.AdministrationConfig',
+    'user_message_board.apps.UserMessageBoardConfig', # Only here to be used in testing...
 
     # my app
     'WSCSite',
