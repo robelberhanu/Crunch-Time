@@ -1,8 +1,7 @@
 [run]
 omit =
-    #Is the actual test file plus test folder so thus is illogical to test against
+    #Is the actual test file so thus is illogical to test against
     */tests.py
-    tests/*
     #Django files not ours
     manage.py
     */migrations/*
