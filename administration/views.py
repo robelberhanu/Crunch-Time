@@ -61,11 +61,11 @@ def create_user(request):
 
 
 # instead of deleting a user to avoid issues with the database - rather delete for the moment
-def deactivate_user(request, username):
-    obj = CustomUser.objects.get(pk=username)
-    obj.is_active = False
-    obj.save()
-    return render(request, 'administration/manage_users.html')
+# def deactivate_user(request, username):
+#     obj = CustomUser.objects.get(pk=username)
+#     obj.is_active = False
+#     obj.save()
+#     return render(request, 'administration/manage_users.html')
 
 
 def user(request, user_id):
@@ -76,11 +76,12 @@ def user(request, user_id):
 
 def edit_user(request, user_id):
     instance = get_object_or_404(CustomUser, username=user_id)
+    curr_user = CustomUser.objects.get(username=user_id)
     form = EditUserForm(request.POST or None, instance=instance)
     if form.is_valid():
         form.save()
         return redirect('manage_users')
-    return render(request, 'administration/edit_user.html', {'form': form})
+    return render(request, 'administration/edit_user.html', {'form': form, 'currUser': curr_user})
 
 
 # class edit_user_view(UpdateView):
@@ -123,6 +124,7 @@ def club(request, club_id):
     #     kwargs = super(club, self).get_form_kwargs()
     #     kwargs.update({'club_id': self.club_id})
     #     return kwargs
+
 
 def create_club(request):
     if request.method == 'POST':

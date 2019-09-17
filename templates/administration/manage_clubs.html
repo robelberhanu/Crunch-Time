@@ -107,22 +107,16 @@
 </head>
 
 <body>
+{% include 'includes/header.html' %}
 {% if  user.is_staff%}
-    <div class="nav4">
-        <a  href='{% url 'messageBoardView' %}' ><img class="logo" src={%  static "login/index.png" %}></a>
-        <a class="profile" href='{% url 'messageBoardView' %}'>
-            <img  class="profile_pic" src="login/user.png">
-        </a>
-    </div>
+{#    <div class="nav4">#}
+{#        <a  href='{% url 'messageBoardView' %}' ><img class="logo" src={%  static "login/index.png" %}></a>#}
+{#        <a class="profile" href='{% url 'messageBoardView' %}'>#}
+{#            <img  class="profile_pic" src="login/user.png">#}
+{#        </a>#}
+{#    </div>#}
 
-    <div class="label">
-        <center>
-            <strong><p>
-                Customise Clubs
-            </p>
-            </strong>
-        </center>
-    </div>
+    <h1>Customise Clubs</h1>
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>

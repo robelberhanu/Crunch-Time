@@ -19,6 +19,7 @@ from django.template.backends import django
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 import message_board.views
+import main.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +32,8 @@ urlpatterns = [
     path('users/', include('users.urls')),
     
     path('administration/', include('administration.urls')),
+
+    path('home/', main.views.home, name='home'),
 
     # path()
 

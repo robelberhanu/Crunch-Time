@@ -4,6 +4,7 @@ omit =
     */tests.py
     #Django files not ours
     manage.py
+    */migrations/*
     WSCSite/wsgi.py
     #File isn't used
     WSCSite/middleware/login_required_middleware.py

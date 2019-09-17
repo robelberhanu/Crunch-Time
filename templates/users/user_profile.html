@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <title>Title</title>
 {#    <p>UserName: {{ customUser.username }}</p>#}
-    <p>Curr User: {{ user.username }}</p>
 </head>
 <body>
+{% include 'includes/header.html' %}
 
+<center><h1>User Profile</h1></center>
+<div class="centre-container">
+    <label><h3>Student Number:</h3> <p></p></label>
+    <h3>First Name:</h3> <p>{{ user.username }}</p>
+    <label><h3>Last Name:</h3> <p></p></label>
+    <label><h3>Email Address:</h3> <p></p></label>
+    <label><h3>Contact Number:</h3> <p></p></label>
+    <label><h3>ID Number:</h3> <p></p></label>
+</div>
 </body>
 </html>

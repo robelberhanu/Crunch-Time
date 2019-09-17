@@ -7,6 +7,7 @@ from users.models import CustomUser
 class Club (models.Model):
     club_id = models.IntegerField(primary_key=True)
     club_name = models.CharField(max_length=30)
+    is_deleted = models.BooleanField()
 
 
 class Portfolio (models.Model):

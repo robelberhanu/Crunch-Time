@@ -4,91 +4,32 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Create User</title>
   <link rel="stylesheet" href="{% static "login/Styles2.css" %}">
-{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />#}
-
-    <style>
-
-            .nav5{
-                 background-color: white;
-                height: 100px;
-                width:100%;
-                top: 0;
-                left: 0;
-                overflow: hidden
-            }
-
-
-            input[type=text], input[type=email], input[type=number], select {
-
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-
-            }
-
-             input[type=submit] {
-                width: 100%;
-                background-color:rgb(8, 3, 70) ;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                left: 50%;
-    }
-
-          input[type=submit]:hover {background-color: rgb(8, 3, 70);
-    }
-
-
-            .centre-container{
-                margin: 0;
-                position: absolute;
-                left: 50%;
-                top: 70%;
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-
-            }
-
-
-    </style>
 
 </head>
 <body>
-{%  if user.is_staff %}
-
-    <div class="nav5">
-        <a  href='{% url 'messageBoardView' %}' ><img class="logo" src={%  static "login/index.png" %}></a>
-        <a class="profile" href='{% url 'messageBoardView' %}'><img  class="profile_pic" src="login/user.png"></a>
-    </div>
-    <div class="label">
-        <center>
-        <strong><p>
-                  Create Club
-                </p>
-        </strong>
-            </center>
-    </div>
+{% include 'includes/header.html' %}
+{% if user.is_staff %}
+{#    <div class="label">#}
+{#        <center>#}
+{#        <strong>#}
+{#            <p>#}
+{#              Create Club#}
+{#            </p>#}
+{#        </strong>#}
+{#        </center>#}
+{#    </div>#}
+    <h1>Create Club</h1>
     <div class="centre-container">
-        <div>
-            <form method="post">
-                {% csrf_token %}
-                {% for f in form %}
-                    {{ f.label_tag }}
-                    {{ f }}<br>
-                {% endfor %}
-                <input type="submit" value="Create Club">
-            </form>
-        </div>
+        <form method="post">
+            {% csrf_token %}
+            {% for f in form %}
+                {{ f.label_tag }}
+                {{ f }}<br>
+            {% endfor %}
+            <input type="submit" value="Create Club">
+        </form>
     </div>
 {% else %}
     Only users with admin privileges may access this page.
