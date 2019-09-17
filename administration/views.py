@@ -20,12 +20,20 @@ from main.models import Club, StudentClubRelation, Portfolio
 
 # Redirect user to login page if not logged in
 @login_required(login_url='/accounts/login/')
-
-
 def manage_users(request):
     # Display users
     # username_list = CustomUser.objects.all().values_list('username', flat=True),
-    user_list = list(CustomUser.objects.all())
+    user_list = list(CustomUser.objects.filter(is_active=True)) # i.e if user has been deleted or not
+    if request.method == 'POST':
+        if 'remove' in request.POST:
+            selected = request.POST.getlist("selected")
+            for username in selected:
+                curr_user = CustomUser.objects.get(username=username)
+                curr_user.is_active = False
+                curr_user.save()
+                # curr_user.set
+            temp = ""
+            return redirect(manage_users)
     # usernames = user_list.values_list('username', flat=True),
     # return HttpResponse(template.render(context, request))
     # , 'usernames': usernames} 'username_list': username_list,
@@ -68,6 +76,7 @@ def create_user(request):
 #     return render(request, 'administration/manage_users.html')
 
 
+# Don't think this is used
 def user(request, user_id):
     currUser = CustomUser.objects.get(username=user_id)
     return render(request, 'administration/user.html', {user: currUser})

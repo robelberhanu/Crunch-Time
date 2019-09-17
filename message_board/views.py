@@ -67,6 +67,7 @@ def MainMessages(request):
 # def CustomiseUsers(request):
 #     return render(request, 'message_board/Customise_Users.html')
 
+
 def SendMessage(request):
     if request.method == 'POST':
         if request.POST.get('header') and request.POST.get('body'):
@@ -76,7 +77,7 @@ def SendMessage(request):
             message.user = users.models.CustomUser.objects.first()
             message.date_time = datetime.datetime.now()
             message.save()
-
+            return redirect('messageBoardView')
     return render(request, 'message_board/Send_Message.html')
 
 
@@ -88,8 +89,8 @@ def MessageBoard(request):
 #     return render(request, 'message_board/Customise_Clubs.html')
 
 
-def MainMessages(request):
-    return render(request, 'message_board/Main_Message_Board.html')
+# def MainMessages(request):
+#     return render(request, 'message_board/Main_Message_Board.html')
 
 # def UserProfile(request):
 #     return render(request, 'message_board/User_Profile.html')

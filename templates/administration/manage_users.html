@@ -113,43 +113,49 @@
         <a href="{% url 'logout' %}">Logout</a>
     </div>
 
-    <button class="button">Remove</button>
-
-    <div id="main">
-        <ul>
-            <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
-        </ul>
-    </div>
+    <form method="post">
+        {% csrf_token %}
 
 
-    <div>
-        <table>
-            <tr>
-                <th>User Name</th>
-                <th>Name</th>
-                <th>Email Address</th>
-                <th>Contact No</th>
-                <th>ID Number</th>
-                <th>Select User</th>
-            </tr>
 
-            {%for user in user_list %}
+    {#    <button class="button">Remove</button>#}
+
+        <div id="main">
+            <ul>
+                <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+                <li><input class ="button" type="submit" name="remove" value="remove" /></li>
+            </ul>
+        </div>
+
+
+        <div>
+            <table>
                 <tr>
-                    <td><a href="/administration/users/edit/{{ user.username }}/">{{ user.username }}</a>
-                        {#                        <td><a href="/users/{{ user.username }}">{{ user.username }}</a>#}
-                    </td>
-                    <td> {{ user.first_name }} {{ user.last_name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.contact_number }}</td>
-                    <td>{{ user.id_number }}</td>
-                    <td style="vertical-align: middle;">
-                        <input type="checkbox" name="{{ user.username }}_CheckBox" style="width:12px;"/>
-                    </td>
+                    <th>User Name</th>
+                    <th>Name</th>
+                    <th>Email Address</th>
+                    <th>Contact No</th>
+                    <th>ID Number</th>
+                    <th>Select User</th>
                 </tr>
-            {% endfor %}
-        </table>
-    </div>
 
+                {%for user in user_list %}
+                    <tr>
+                        <td><a href="/administration/users/edit/{{ user.username }}/">{{ user.username }}</a>
+                            {#                        <td><a href="/users/{{ user.username }}">{{ user.username }}</a>#}
+                        </td>
+                        <td> {{ user.first_name }} {{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.contact_number }}</td>
+                        <td>{{ user.id_number }}</td>
+                        <td style="vertical-align: middle;">
+                            <input type="checkbox" name="selected" id="{{ user.username }}_CheckBox" value={{user.username}} style="width:12px;"/>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </form>
 
     <script>
     function openNav() {

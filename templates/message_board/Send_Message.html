@@ -39,15 +39,15 @@
         }
 
 
-        .centre-container{
-            margin: 0;
-            position: absolute;
-            left: 50%;
-            top: 60%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-
-        }
+        {#.centre-container{#}
+        {#    margin: 0;#}
+        {#    position: absolute;#}
+        {#    left: 50%;#}
+        {#    top: 60%;#}
+        {#    -ms-transform: translate(-50%, -50%);#}
+        {#    transform: translate(-50%, -50%);#}
+        {##}
+        {#}#}
 
         .nav3{
             background-color: white;
@@ -74,17 +74,17 @@
 
 {% include 'includes/header.html' %}
 
-<div class="label">
-    <center>
-        <strong><p>
-            ADD MESSAGES
-        </p>
-        </strong>
-    </center>
-</div>
+<h1>Add Message</h1>
+{#<div class="label">#}
+{#    <center>#}
+{#        <strong><p>#}
+{#            ADD MESSAGES#}
+{#        </p>#}
+{#        </strong>#}
+{#    </center>#}
+{#</div>#}
 
 <div class="centre-container">
-
     <div>
         <form action="" method="POST">
             {% csrf_token %}
