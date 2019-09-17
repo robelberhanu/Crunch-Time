@@ -9,6 +9,7 @@ import datetime
 import users.models
 import main.models
 from users.models import CustomUser
+from main.models import StudentClubRelation, Club, Portfolio
 # Create your views here.
 
 # Redirect user to login page if not logged in
@@ -17,10 +18,15 @@ from users.models import CustomUser
 def messageBoard(request):
 
     messageBoardNames = []
-    studentClubEntities = main.models.StudentClubRelation(user_id=CustomUser.username).objects.all()
+    curr_user = request.user
+    studentClubEntities = StudentClubRelation.objects.filter(user_id=curr_user)
+    # studentClubEntities = main.models.StudentClubRelation(user_id=curr_user).objects.all()
     for entity in studentClubEntities:
-        clubName = main.models.Club(club_id=entity.club_id).objects.first().club_name
-        portfolioName = main.models.Portfolio(position_id=entity.position_id).objects.first().portfolio_name
+        # user = CustomUser.objects.get(pk=form.data.get('user_id'))
+        clubName = Club.objects.get(club_id=entity.club_id.club_id).club_name
+        # portfolioName = main.models.Portfolio(position_id=entity.position_id).objects.first().portfolio_name
+        # No idea if following will work
+        portfolioName = Portfolio.objects.filter(portfolio_id = entity.portfolio_id.portfolio_id).first().portfolio_name
         if clubName not in messageBoardNames:
             messageBoardNames.append(clubName)
         if portfolioName not in messageBoardNames:
@@ -31,6 +37,7 @@ def messageBoard(request):
     if not (request.user.is_superuser or request.user.is_staff):
         # your logic here
         return redirect("mainMessageBoardView")  # or your url name
+
     return render(request, 'message_board/Admin_message_board.html', {'messages': messages, 'messageboards': messageBoardNames})
 
 
@@ -51,14 +58,14 @@ def MainMessages(request):
 #     messages = Message.objects.all()
 #     return render(request, 'Messages/messages.html', {messages : messages})
 
-def ManageUsers(request):
-    return render(request, 'message_board/Create_Users.html')
-
-def ManageClubs(request):
-    return render(request, 'message_board/Customise_Clubs.html')
-
-def CustomiseUsers(request):
-    return render(request, 'message_board/Customise_Users.html')
+# def ManageUsers(request):
+#     return render(request, 'message_board/Create_Users.html')
+#
+# def ManageClubs(request):
+#     return render(request, 'message_board/Customise_Clubs.html')
+#
+# def CustomiseUsers(request):
+#     return render(request, 'message_board/Customise_Users.html')
 
 def SendMessage(request):
     if request.method == 'POST':
@@ -74,25 +81,24 @@ def SendMessage(request):
 
 
 def MessageBoard(request):
-
     return render(request, 'message_board/Main_Message_Board.html')
 
 
-def CustomiseClubs(request):
-    return render(request, 'message_board/Customise_Clubs.html')
+# def CustomiseClubs(request):
+#     return render(request, 'message_board/Customise_Clubs.html')
 
 
 def MainMessages(request):
     return render(request, 'message_board/Main_Message_Board.html')
 
-def UserProfile(request):
-    return render(request, 'message_board/User_Profile.html')
-
-def WSCHeader(request):
-    return render(request, 'WSCHeader.html')
-
-def ChairPerson(request):
-    return render(request, 'message_board/Chair-Person-Messages.html')
-
-def Treasurer(request):
-    return render(request, 'message_board/Treasurer-Messages.html')
+# def UserProfile(request):
+#     return render(request, 'message_board/User_Profile.html')
+#
+# def WSCHeader(request):
+#     return render(request, 'WSCHeader.html')
+#
+# def ChairPerson(request):
+#     return render(request, 'message_board/Chair-Person-Messages.html')
+#
+# def Treasurer(request):
+#     return render(request, 'message_board/Treasurer-Messages.html')
