@@ -7,7 +7,7 @@ from users.models import CustomUser
 class Club (models.Model):
     club_id = models.IntegerField(primary_key=True)
     club_name = models.CharField(max_length=30)
-    is_deleted = models.BooleanField()
+    is_deleted = models.BooleanField(default=False)
 
 
 class Portfolio (models.Model):
@@ -25,6 +25,7 @@ class StudentClubRelation(models.Model):
     user_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # Actual User not id of user...
     club_id = models.ForeignKey(Club, on_delete=models.CASCADE)  # Actual club not id of club...
     portfolio_id = models.ForeignKey(Portfolio, on_delete=models.CASCADE)  # Actual club not id of club...
+    is_deleted = models.BooleanField(default=False)
 
     class Meta:
         unique_together = ('club_id', 'user_id',)  # Table cannot have multiple rows that share the same club_id and user_id combination

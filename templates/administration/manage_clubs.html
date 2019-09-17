@@ -118,6 +118,7 @@
 
     <h1>Customise Clubs</h1>
 
+
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="/administration/users">Customise Users</a>
@@ -126,34 +127,37 @@
         <a href="{% url 'logout' %}">Logout</a>
     </div>
 
+    <form method="post">
+        {% csrf_token %}
 
-    <button class="button">Remove</button>
+{#        <button class="button">Remove</button>#}
 
-    <div id="main">
-        <ul>
-            <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+        <div id="main">
+            <ul>
+                <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+                <li><input class ="button" type="submit" name="remove" value="remove" /></li>
+            </ul>
+        </div>
 
-        </ul>
-    </div>
-
-    <div>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Remove Selected</th>
-            </tr>
-            {%for club in clubs %}
+        <div>
+            <table>
                 <tr>
-                    <td><a href="/administration/clubs/{{ club.club_id}}/">{{ club.club_name }}</a></td>
-                    <td style="vertical-align: middle;">
-                        <input type="checkbox" name="{{ club.club_id }}_CheckBox" style="width:12px;"/>
-                    </td>
+                    <th>Name</th>
+                    <th>Remove Selected</th>
                 </tr>
-            {% empty %}
-                This is empty
-            {% endfor %}
-        </table>
-    </div>
+                {%for club in clubs %}
+                    <tr>
+                        <td><a href="/administration/clubs/{{ club.club_id}}/">{{ club.club_name }}</a></td>
+                        <td style="vertical-align: middle;">
+                            <input type="checkbox" name="selected" id="{{ club.club_id }}_CheckBox" value={{club.club_id}} style="width:12px;"/>
+                        </td>
+                    </tr>
+                {% empty %}
+                    This is empty
+                {% endfor %}
+            </table>
+        </div>
+    </form>
 {% else  %}
     {# TODO: Put better UI here#}
     Sorry but only users with admin privileges are allowed to use this page

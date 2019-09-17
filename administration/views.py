@@ -100,31 +100,52 @@ def edit_user(request, user_id):
 
 
 def manage_clubs(request):
-    clubs = Club.objects.all()
+    # clubs = Club.objects.all()
+    clubs = list(Club.objects.filter(is_deleted=False))
+    if request.method == 'POST':
+        if 'remove' in request.POST:
+            selected = request.POST.getlist("selected")
+            for club_id in selected:
+                curr_club = Club.objects.get(club_id=club_id)
+                curr_club.is_deleted = True
+                curr_club.save()
+                # curr_user.set
+            temp = ""
+            return redirect(manage_clubs)
     return render(request, 'administration/manage_clubs.html', {'clubs': clubs})
 
 
 def club(request, club_id):
     currClub = Club.objects.get(club_id=club_id)
     club_id = club_id
-    studentClubRelations = StudentClubRelation.objects.filter(club_id=club_id)
+    studentClubRelations = StudentClubRelation.objects.filter(club_id=club_id, is_deleted=False)
     # Make this work...
     if request.method == 'POST':
-        form = StudentClubRelationCreationForm(request.POST,club_id = club_id)
-        # kwargs = form.get_form_kwargs()
-        # kwargs.update({'club_id': club_id})
-        # form.fields.club_id
-        if form.is_valid():
-            form.save(commit=False)
-            user = CustomUser.objects.get(pk=form.data.get('user_id'))
-            portfolio = Portfolio.objects.get(pk=form.data.get('portfolio_id'))
-            # Dunno if this is valid
-            curr_studentClubRelation = StudentClubRelation(user_id=user, portfolio_id=portfolio, club_id= currClub)
-            # curr_user = authenticate(username=username, password=raw_password)
-            # basically says that the user has no password - used for custom authentication i.e. LDAP
-            # curr_user.set_unusable_password()
-            curr_studentClubRelation.save()
-            # return redirect(manage_clubs)
+        if 'remove' in request.POST:
+            selected = request.POST.getlist("selected")
+            for curr_id in selected:
+                curr_scr= StudentClubRelation.objects.get(id=curr_id)
+                curr_scr.is_deleted = True
+                curr_scr.save()
+                # curr_user.set
+            temp = ""
+            return redirect(club, club_id)
+        else:
+            form = StudentClubRelationCreationForm(request.POST,club_id = club_id)
+            # kwargs = form.get_form_kwargs()
+            # kwargs.update({'club_id': club_id})
+            # form.fields.club_id
+            if form.is_valid():
+                form.save(commit=False)
+                user = CustomUser.objects.get(pk=form.data.get('user_id'))
+                portfolio = Portfolio.objects.get(pk=form.data.get('portfolio_id'))
+                # Dunno if this is valid
+                curr_studentClubRelation = StudentClubRelation(user_id=user, portfolio_id=portfolio, club_id= currClub)
+                # curr_user = authenticate(username=username, password=raw_password)
+                # basically says that the user has no password - used for custom authentication i.e. LDAP
+                # curr_user.set_unusable_password()
+                curr_studentClubRelation.save()
+                # return redirect(manage_clubs)
     else:
         form = StudentClubRelationCreationForm()
     return render(request, 'administration/club.html', {'club': currClub, 'studentClubRelations': studentClubRelations, 'form': form})

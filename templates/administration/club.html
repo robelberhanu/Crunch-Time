@@ -131,44 +131,48 @@
         <a href="{% url 'logout' %}">Logout</a>
     </div>
 
-    <button class="button">Remove</button>
-    <div id="main">
-        <ul>
-            <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
-        </ul>
-    </div>
-
-    <div>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Portfolio</th>
-                <th>Selected</th>
-            </tr>
-            {%for studentClubRelation in studentClubRelations %}
-                <tr>
-                    <td>{{ studentClubRelation.user_id }}</td>
-                    <td>{{ studentClubRelation.portfolio_id}}</td>
-                    <td style="vertical-align: middle;">
-                        <input type="checkbox" name="{{ studentClubRelation.user_id }}_CheckBox" style="width:12px;"/>
-                    </td>
-                </tr>
-            {% empty %}
-                {#                        This is empty#}
-            {% endfor %}
-        </table>
-    </div>
-{#    <div class="centre-container">#}
-        <div class="centre-container">
-            <form method="post">
-                {% csrf_token %}
-                {% for f in form %}
-                    {{ f.label_tag }}
-                    {{ f }}<br>
-                {% endfor %}
-                <input type="submit" value="Add Club Member">
-            </form>
+    <form method="post">
+        {% csrf_token %}
+{#        <button class="button">Remove</button>#}
+        <div id="main">
+            <ul>
+                <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+                <li><input class ="button" type="submit" name="remove" value="remove" /></li>
+            </ul>
         </div>
+
+        <div>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Portfolio</th>
+                    <th>Selected</th>
+                </tr>
+                {%for studentClubRelation in studentClubRelations %}
+                    <tr>
+                        <td>{{ studentClubRelation.user_id }}</td>
+                        <td>{{ studentClubRelation.portfolio_id}}</td>
+                        <td style="vertical-align: middle;">
+                            <input type="checkbox" name="selected" id ="{{ studentClubRelation.user_id }}_CheckBox" value={{studentClubRelation.id}} style="width:12px;"/>
+                        </td>
+                    </tr>
+                {% empty %}
+                    {#                        This is empty#}
+                {% endfor %}
+            </table>
+        </div>
+    </form>
+{#    <div class="centre-container">#}
+    <div class="centre-container">
+        <form method="post">
+            {% csrf_token %}
+            {% for f in form %}
+                {{ f.label_tag }}
+                {{ f }}<br>
+            {% endfor %}
+            <input type="submit" value="Add Club Member">
+        </form>
+    </div>
 {#    </div>#}
 {% else  %}
     {# TODO: Put better UI here#}
