@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>
-           Main Message-Board
+           {{ messageboard }} Message-Board
         </title>
         <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
 {#        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />#}
@@ -22,7 +22,7 @@
        {% include 'includes/header.html' %}
         <div class="content">
 
-            <h1>Main Message Board</h1>
+            <h1>{{ messageboard }} Message Board</h1>
 {#            <div class="label">#}
 {#                <center>#}
 {#                <strong><p>#}
@@ -34,12 +34,12 @@
 {#            </div>#}
 
                 <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="javascript: void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    {% for name in messageboards %}
+                        <a href="?messageboard={{ name }}">{{ name }} Message Board</a>
+                    {% endfor %}
                     <a href="#">My Clubs</a>
                     <a href="#">My Portfolio</a>
-                    {% for name in messageboards %}
-                        <a href="#">{{ name }}</a>
-                    {% endfor %}
                     <a href="{% url 'logout' %}">LogOut</a>
 
               </div>
