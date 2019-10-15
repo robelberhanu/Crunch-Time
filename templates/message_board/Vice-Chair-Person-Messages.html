@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+       Vice-Chairperson Message Board
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />#}
+
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous">
+    </script>
+    <script>
+        $(function(){
+            $("#header").load("WSCHeader.html");
+        });
+    </script>
+</head>
+
+<body>
+
+{#<div id="header"></div>#}
+
+{% include "includes/header.html" %}
+
+<div class="content">
+    <h1>Vice-Chairperson Message Board</h1>
+{#    <div class="label">#}
+{#        <center>#}
+{#            <strong><p>#}
+{#        Treasurer Message Board#}
+{#            </p>#}
+{#            </strong>#}
+{#        </center>#}
+{#    </div>#}
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="Main_Message_Board.html">Users MessageBoard</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    <div id="main">
+        <ul>
+            <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
+            <li><a href="./Send_Message.html">Add Message</a></li>
+
+        </ul>
+    </div>
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Updated by</th>
+            <th>Time updated</th>
+        </tr>
+
+
+        {% for message in messages %}
+            <tr>
+                <td ><a href="messages.html?msg={{ message.message_body }}"> {{ message.message_header }}
+                <td>{{ message.user }}</td>
+                <td>{{ message.date_time }}</td>
+            </tr>
+        {% empty %}
+        {% endfor %}
+
+    </table>
+    <div>
+
+    </div>
+</div>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.body.style.backgroundColor = "white";
+    }
+
+
+</script>
+</body>
+</html>
