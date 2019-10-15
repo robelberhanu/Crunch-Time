@@ -20,6 +20,7 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 import message_board.views
 import main.views
+from WSCSite import startup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,4 +48,9 @@ urlpatterns = [
     # accounts/reset/<uidb64>/<token>/ [name='password_reset_confirm']
     # accounts/reset/done/ [name='password_reset_complete']
 ]
+
+# Run code here that you only want to run once at startup
+startup.create_portfolios()
+
+
 
