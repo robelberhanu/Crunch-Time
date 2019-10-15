@@ -14,8 +14,9 @@ urlpatterns = [
     # path('Main_Message_Board.html', views.MainMessages, name='MainMessages'),
     # path('User_Profile.html', views.UserProfile, name='UserProfile'),
     # path('WSCHeader.html', views.WSCHeader, name='WSCHeader'),
-    # path('Treasurer-Messages.html', views.Treasurer, name='Treasurer'),
-    # path('Chair-Person-Messages.html', views.ChairPerson, name='Chair-Person'),
+    path('Treasurer-Messages.html', views.Treasurer, name='Treasurer'),
+    path('Chair-Person-Messages.html', views.ChairPerson, name='Chair-Person'),
+    path('Vice-Chair-Person-Messages.html', views.ViceChairPerson, name='Vice-Chair-Person'),
 
     # arguments for path function -
     # route (required)

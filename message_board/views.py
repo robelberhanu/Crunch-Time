@@ -98,8 +98,11 @@ def MessageBoard(request):
 # def WSCHeader(request):
 #     return render(request, 'WSCHeader.html')
 #
-# def ChairPerson(request):
-#     return render(request, 'message_board/Chair-Person-Messages.html')
-#
-# def Treasurer(request):
-#     return render(request, 'message_board/Treasurer-Messages.html')
+def ChairPerson(request):
+    return render(request, 'message_board/Chair-Person-Messages.html')
+
+def ViceChairPerson(request):
+    return render(request, 'message_board/Vice-Chair-Person-Messages.html')
+
+def Treasurer(request):
+    return render(request, 'message_board/Treasurer-Messages.html')

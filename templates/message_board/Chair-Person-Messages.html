@@ -4,10 +4,10 @@
 <html>
 <head>
     <title>
-        Chair-Person Message-Board
+        Chairperson Message Board
     </title>
     <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />#}
 
 
     <script
@@ -23,18 +23,20 @@
 
 <body>
 
-<div id="header"></div>
+{#<div id="header"></div>#}
 
+{% include "includes/header.html" %}
 
 <div class="content">
-    <div class="label">
-        <center>
-            <strong><p>
-                Chair-Person Message Board
-            </p>
-            </strong>
-        </center>
-    </div>
+    <h1>Chairperson Message Board</h1>
+{#    <div class="label">#}
+{#        <center>#}
+{#            <strong><p>#}
+{#        Treasurer Message Board#}
+{#            </p>#}
+{#            </strong>#}
+{#        </center>#}
+{#    </div>#}
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>

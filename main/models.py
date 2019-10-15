@@ -9,6 +9,9 @@ class Club (models.Model):
     club_name = models.CharField(max_length=30)
     is_deleted = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.club_name
+
 
 class Portfolio (models.Model):
     portfolio_id = models.IntegerField(primary_key=True)
