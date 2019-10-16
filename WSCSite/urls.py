@@ -50,7 +50,7 @@ urlpatterns = [
 ]
 
 # Run code here that you only want to run once at startup
-startup.create_portfolios()
+# startup.create_portfolios()
 
 
 

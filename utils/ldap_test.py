@@ -1,8 +1,8 @@
 from ldap3 import Server, Connection, ALL
 
 # Change for your student id and password
-studentID = ''
-password = ''
+studentID = '1278687'
+password = 'hustlersHV'
 
 server = Server('ss.wits.ac.za', get_info=ALL, use_ssl=True)
 

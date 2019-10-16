@@ -8,3 +8,6 @@ class CustomUser(AbstractUser):
     contact_number = models.IntegerField(null=True)
     id_number = models.IntegerField(null=False, validators=[MinValueValidator(100000)], default=100000)
 
+    # # added this method
+    # def __str__(self):
+    #     return self.contact_number
