@@ -64,12 +64,9 @@
 
 </head>
 <body>
+{% include 'includes/header.html' %}
 {%  if user.is_staff %}
 
-    <div class="nav5">
-        <a  href='{% url 'messageBoardView' %}' ><img class="logo" src={%  static "login/index.png" %}></a>
-        <a class="profile" href='{% url 'messageBoardView' %}'><img  class="profile_pic" src="login/user.png"></a>
-    </div>
     <div class="label">
         <center>
         <strong>
