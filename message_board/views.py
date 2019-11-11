@@ -10,6 +10,7 @@ import users.models
 import main.models
 from users.models import CustomUser
 from main.models import StudentClubRelation, Club, Portfolio
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -38,7 +39,7 @@ def messageBoard(request):
     messageBoard = ''
     i = url.find('=')
     if i == -1:
-        messageBoard = "Main"
+        messageBoard = "main"
     else:
         messageBoard = url[i + 1:]
 
@@ -123,6 +124,34 @@ def SendMessage(request):
             message.message_board_name = messageBoard
 
             message.save()
+
+            # send message as email to all users of this message board
+
+            if messageBoard == "main" or messageBoard == "Main" or messageBoard == "MAIN":
+                studClubEntities = StudentClubRelation.objects.all()
+            else:
+                clubEntity = Club.objects.filter(club_name=messageBoard).first()
+                if clubEntity is not None:
+                    club_id = clubEntity.club_id
+                    studClubEntities = StudentClubRelation.objects.filter(club_id=club_id).all()
+                else:
+                    portfolio_id = Portfolio.objects.filter(portfolio_name=messageBoard).first().portfolio_id
+                    studClubEntities = StudentClubRelation.objects.filter(portfolio_id=portfolio_id).all()
+
+            myUsers = []
+            for entity in studClubEntities:
+                myUsers.append(entity.user_id.email)
+
+            send_mail(
+                message.message_header,
+                message.message_body,
+                message.user.email,
+                myUsers,
+                fail_silently=True,
+                auth_user=message.user.email,
+                auth_password=request.POST.get('email_password')
+            )
+
             return redirect(reverse('messageBoardView') + '?messageboard=' + messageBoard)
     return render(request, 'message_board/Send_Message.html')
 
