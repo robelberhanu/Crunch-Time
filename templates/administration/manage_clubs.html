@@ -8,121 +8,18 @@
     </title>
     <link rel="stylesheet" type="text/css" href="{% static "login/Styles2.css" %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css ">
-    {#        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" integrity="sha256-vK3UTo/8wHbaUn+dTQD0X6dzidqc5l7gczvH+Bnowwk=" crossorigin="anonymous" />#}
-    <style>
-
-        .nav4{
-
-            background-color: white;
-            height: 100px;
-            width:100%;
-            top: 0;
-            left: 0;
-            overflow: hidden
-        }
-
-        * {box-sizing: border-box;}
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-
-        .topnav a {
-            float: left;
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-
-
-        .topnav a {
-            background-color: #010641;
-        {#color: white;#}
-        }
-
-
-        .topnav input[type=text] {
-            padding: 8px;
-            margin-top: 5px;
-            font-size: 17px;
-            border: none;
-        }
-
-        .topnav .search-container button {
-            float: right;
-            padding: 6px;
-            margin-top: 7px;
-            margin-right: 0px;
-            background: #f3c800;
-            font-size: 17px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .topnav .search-container button:hover {
-            background: #f3c800;
-        }
-
-
-
-        @media screen and (max-width: 600px) {
-            .topnav .search-container {
-                float: none;
-            }
-            .topnav a, .topnav input[type=text], .topnav .search-container button {
-                float: right;
-                display: block;
-                text-align: left;
-                width: 80%;
-                margin: 0;
-                padding: 16px;
-            }
-            .topnav input[type=text] {
-                border: 1px solid #1924cc;
-            }
-        }
-
-        .button {
-            background-color: #02054d;
-            border: none;
-            color: white;
-            padding: 6px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 18px 2px;
-            cursor: pointer;
-            float: right;
-        }
-
-    </style>
-
 </head>
 
 <body>
 {% include 'includes/header.html' %}
 {% if  user.is_staff%}
-{#    <div class="nav4">#}
-{#        <a  href='{% url 'messageBoardView' %}' ><img class="logo" src={%  static "login/index.png" %}></a>#}
-{#        <a class="profile" href='{% url 'messageBoardView' %}'>#}
-{#            <img  class="profile_pic" src="login/user.png">#}
-{#        </a>#}
-{#    </div>#}
 
     <h1>Customise Clubs</h1>
 
-
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/administration/users">Customise Users</a>
         <a href="/Admin_message_board/">Admin Message Board</a>
+        <a href="/administration/users">Customise Users</a>
         <a href="/administration/clubs/create">Add Club</a>
         <a href="{% url 'logout' %}">Logout</a>
     </div>
@@ -130,14 +27,15 @@
     <form method="post">
         {% csrf_token %}
 
-{#        <button class="button">Remove</button>#}
+
 
         <div id="main">
             <ul>
                 <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span></li>
-                <li><input class ="button" type="submit" name="remove" value="remove" /></li>
             </ul>
         </div>
+
+                            <input class ="button" type="submit" name="remove" value="remove" />
 
         <div>
             <table>
@@ -153,7 +51,6 @@
                         </td>
                     </tr>
                 {% empty %}
-                    This is empty
                 {% endfor %}
             </table>
         </div>

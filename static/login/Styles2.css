@@ -2,7 +2,7 @@ body {
     background-color: white;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    /*overflow: scroll;*/
+    overflow: scroll;
 }
 
 
@@ -55,7 +55,7 @@ body {
 }
 
 table {
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
     width: 100%;
   }
 
@@ -99,14 +99,14 @@ body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    color: #ceba07;
+    /*font-family: 'Courier New', Courier, monospace;*/
+    color: #f4fcff;
     display: block;
     transition: 0.3s;
   }
 
   .sidenav a:hover {
-    color:white;
+    color: #f3c800;
   }
 
   .sidenav .closebtn {
@@ -149,12 +149,13 @@ body {
     color: rgb(8, 3, 70);
     text-align: center;
     padding: 14px 16px;
-    font: 20px;
+      font-family: sans-serif;
+      font-size: 18px;
     text-decoration: none;
   }
 
   li a:hover:not(.active) {
-    background-color: rgb(250, 227, 24);
+    background-color: rgb(243, 200, 0);
   }
 
   .active {
@@ -228,14 +229,7 @@ h1{
 
 }
 
-.nav5{
-     background-color: white;
-    height: 100px;
-    width:100%;
-    top: 0;
-    left: 0;
-    overflow: hidden
-}
+
 
 
 input[type=text], input[type=email], input[type=number], select {
@@ -251,16 +245,21 @@ input[type=text], input[type=email], input[type=number], select {
 }
 
  input[type=submit] {
-    width: 100%;
+    /*width: 100%;*/
     background-color:rgb(8, 3, 70) ;
     color: white;
-    padding: 14px 20px;
+    padding: 10px 17px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 3px;
     cursor: pointer;
-    left: 50%;
+     /*float: right;*/
+    /*left: 50%;*/
 }
 
-  input[type=submit]:hover {background-color: rgb(8, 3, 70);
+
+ .button{
+    float: right;
+ }
+  input[type=submit]:hover {background-color: rgb(2, 5, 77);
 }

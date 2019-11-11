@@ -16,6 +16,6 @@ urlpatterns = [
     # ex: /administration/club/Throwy_Disk/
     path('clubs/<str:club_id>/', views.club, name='club'),
 
-    path('users/edit/<str:user_id>/', views.edit_user, name='edit_user'),
+    path('users/edit_user/<str:user_id>/', views.edit_user, name='edit_user'),
 ]
 
