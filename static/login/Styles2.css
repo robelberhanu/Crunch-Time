@@ -2,7 +2,7 @@ body {
     background-color: white;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    /*overflow: scroll;*/
+    overflow: scroll;
 }
 
 
@@ -99,7 +99,7 @@ body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    /*font-family: 'Courier New', Courier, monospace;*/
     color: #f4fcff;
     display: block;
     transition: 0.3s;
