@@ -135,7 +135,7 @@ DATABASES = {
 # Tries these backends in order until one works
 AUTHENTICATION_BACKENDS = (
     # 'django_auth_ldap.backend.LDAPBackend',  # Will try ldap first, if it doesn't work will try default backend
-    # 'utils.witsldapauth.LDAPBackendWitsStudents',  # Should use file as backend... hopefully
+    'utils.witsldapauth.LDAPBackendWitsStudents',
     'django.contrib.auth.backends.ModelBackend',
 )
 
