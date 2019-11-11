@@ -47,16 +47,17 @@ def create_user(request):
         if form.is_valid():
             form.save(commit=False)
             username = form.cleaned_data.get('username')
-            first_name = form.data.get('first_name')
-            last_name = form.data.get('last_name')
-            email = form.data.get('email')
-            contact_number = form.data.get('contact_number')
-            id_number = form.data.get('id_number')
-            dob = str(id_number)[:6]
-            raw_password = dob  # Will be changed below
+            # first_name = form.data.get('first_name')
+            # last_name = form.data.get('last_name')
+            # email = form.data.get('email')
+            # contact_number = form.data.get('contact_number')
+            # id_number = form.data.get('id_number')
+            # dob = str(id_number)[:6]
+            # raw_password = dob  # Will be changed below
 
             # Dunno if this is valid
-            curr_user = CustomUser.objects.create_user(username=username, password=raw_password, email=email, first_name=first_name, last_name=last_name, contact_number=contact_number, id_number=id_number)
+            # curr_user = CustomUser.objects.create_user(username=username, password=raw_password, email=email, first_name=first_name, last_name=last_name, contact_number=contact_number, id_number=id_number)
+            curr_user = CustomUser.objects.create_user(username=username)
             # curr_user = authenticate(username=username, password=raw_password)
             # basically says that the user has no password - used for custom authentication i.e. LDAP
             # curr_user.set_unusable_password()

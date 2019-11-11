@@ -80,12 +80,14 @@
         <div>
             <form method="post">
                 {% csrf_token %}
-                {% for f in form %}
-                    {% if f != form.password1 and f != form.password2%}
-                        {{ f.label_tag }}
-                        {{ f }}<br>
-                    {% endif %}
-                {% endfor %}
+                <label for="id_username">Student Number:</label>
+                {{ form.username }}
+{#                {% for f in form %}#}
+{#                    {% if f != form.password1 and f != form.password2%}#}
+{#                        {{ f.label_tag }}#}
+{#                        {{ f }}<br>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
                 <input type="submit" value="Create User">
             </form>
 

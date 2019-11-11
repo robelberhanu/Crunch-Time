@@ -84,21 +84,28 @@ class LDAPBackendWitsStudents(LDAPBackend):
         print(" - Attempting Authentication as Student")
         self.settings.BIND_DN = f'{ldap_user._username}@students.wits.ac.za'
         self.settings.BIND_PASSWORD = password
-        try:
-            user = super(LDAPBackendWitsStudents, self).authenticate_ldap_user(ldap_user, password)
-        except:
-            user = None
-        if user:
-            # ldap_user._last_name = ldap_user.attrs['sn'][0]
-            # ldap_user._first_name = ldap_user.attrs['givenName'][0]
-            # Fix for USER_ATTR_MAP not working properly - hopefully...
-            # user1 = CustomUser.objects.get(pk=user.username)
-            # user1.first_name = ldap_user.attrs['givenName'][0]
-            # user1.last_name = ldap_user.attrs['sn'][0]
-            # username.first_name = ldap_user.attrs['givenName'][0]
-            # username.last_name = ldap_user.attrs['sn'][0]
-            # print(username.first_name)
-            print(f" - Authenticated as Student: {ldap_user._username} ({ldap_user.attrs['sn'][0]}, {ldap_user.attrs['givenName'][0]})")
+
+        user = None
+        # Check if user already exists
+        if CustomUser.objects.filter(username=ldap_user._username).exists():  # User must be pre authorised to use site
+            print(ldap_user._username + " - User Exists Already")
+            try:
+                user = super(LDAPBackendWitsStudents, self).authenticate_ldap_user(ldap_user, password)
+            except:
+                user = None
+            if user:
+                # ldap_user._last_name = ldap_user.attrs['sn'][0]
+                # ldap_user._first_name = ldap_user.attrs['givenName'][0]
+                # Fix for USER_ATTR_MAP not working properly - hopefully...
+                # user1 = CustomUser.objects.get(pk=user.username)
+                # user1.first_name = ldap_user.attrs['givenName'][0]
+                # user1.last_name = ldap_user.attrs['sn'][0]
+                # username.first_name = ldap_user.attrs['givenName'][0]
+                # username.last_name = ldap_user.attrs['sn'][0]
+                # print(username.first_name)
+                print(f" - Authenticated as Student: {ldap_user._username} ({ldap_user.attrs['sn'][0]}, {ldap_user.attrs['givenName'][0]})")
+        else:
+            print(ldap_user._username + " - User not authorised")
         return user
 
 
