@@ -13,5 +13,5 @@ def create_portfolios():
             else:
                 portfolio.is_Exec = False
             portfolio.save()
-            print(name + " does not exist")
+            # print(name + " does not exist")
     print("Hello")

@@ -1,7 +1,8 @@
 from pprint import pprint
-import ldap
-from django_auth_ldap.backend import LDAPBackend
+import ldap  # pip install python-ldap
+from django_auth_ldap.backend import LDAPBackend  # pip install django-auth-ldap
 from django_auth_ldap.config import LDAPSearch
+from users.models import CustomUser
 
 
 # ========================================================================= #
@@ -25,6 +26,7 @@ from django_auth_ldap.config import LDAPSearch
 # -----------------------------------------
 
 
+# Populate Django user from LDAP directory
 _USER_ATTR_MAP = {
     "first_name": "givenName",
     "last_name": "sn",
@@ -65,7 +67,7 @@ _CONNECTION_OPTIONS = {
 # -----------------------------------------
 
 
-# TODO: Extract common behavior
+# extending LDAPBackend base class
 class LDAPBackendWitsStudents(LDAPBackend):
 
     settings_prefix = "AUTH_LDAP_SS_"
@@ -83,14 +85,24 @@ class LDAPBackendWitsStudents(LDAPBackend):
         self.settings.BIND_DN = f'{ldap_user._username}@students.wits.ac.za'
         self.settings.BIND_PASSWORD = password
         try:
-            username = super(LDAPBackendWitsStudents, self).authenticate_ldap_user(ldap_user, password)
+            user = super(LDAPBackendWitsStudents, self).authenticate_ldap_user(ldap_user, password)
         except:
-            username = None
-        if username:
+            user = None
+        if user:
+            # ldap_user._last_name = ldap_user.attrs['sn'][0]
+            # ldap_user._first_name = ldap_user.attrs['givenName'][0]
+            # Fix for USER_ATTR_MAP not working properly - hopefully...
+            # user1 = CustomUser.objects.get(pk=user.username)
+            # user1.first_name = ldap_user.attrs['givenName'][0]
+            # user1.last_name = ldap_user.attrs['sn'][0]
+            # username.first_name = ldap_user.attrs['givenName'][0]
+            # username.last_name = ldap_user.attrs['sn'][0]
+            # print(username.first_name)
             print(f" - Authenticated as Student: {ldap_user._username} ({ldap_user.attrs['sn'][0]}, {ldap_user.attrs['givenName'][0]})")
-        return username
+        return user
 
 
+# Not required for now - We cannot test this anyway since we don't have staff access
 # ========================================================================= #
 # STAFF                                                                     #
 # ========================================================================= #
@@ -117,28 +129,28 @@ class LDAPBackendWitsStudents(LDAPBackend):
 # -----------------------------------------
 
 
-# TODO: Extract common behavior
-class LDAPBackendWitsStaff(LDAPBackend):
-
-    settings_prefix = "AUTH_LDAP_DS_"
-
-    default_settings = {
-        'SERVER_URI': 'ldap://ds.wits.ac.za',
-        'USER_SEARCH': LDAPSearch("OU=Wits University,DC=ds,DC=WITS,DC=AC,DC=ZA", ldap.SCOPE_SUBTREE, "(cn=%(user)s)"),
-        'CONNECTION_OPTIONS': _CONNECTION_OPTIONS,
-        'ALWAYS_UPDATE_USER': _ALWAYS_UPDATE_USER,
-        'USER_ATTR_MAP': _USER_ATTR_MAP,
-    }
-
-    def authenticate_ldap_user(self, ldap_user, password):
-        print(" - Attempting Authentication as Staff")
-        self.settings.BIND_DN = f'{ldap_user._username}@wits.ac.za'
-        self.settings.BIND_PASSWORD = password
-        try:
-            username = super(LDAPBackendWitsStaff, self).authenticate_ldap_user(ldap_user, password)
-        except:
-            username = None
-        if username is not None:
-            print(f" - Authenticated as Staff: {ldap_user._username} ({ldap_user.attrs['sn'][0]}, {ldap_user.attrs['givenName'][0]})")
-        return username
+# We don't have staff access so not implemented for now...
+# class LDAPBackendWitsStaff(LDAPBackend):
+#
+#     settings_prefix = "AUTH_LDAP_DS_"
+#
+#     default_settings = {
+#         'SERVER_URI': 'ldap://ds.wits.ac.za',
+#         'USER_SEARCH': LDAPSearch("OU=Wits University,DC=ds,DC=WITS,DC=AC,DC=ZA", ldap.SCOPE_SUBTREE, "(cn=%(user)s)"),
+#         'CONNECTION_OPTIONS': _CONNECTION_OPTIONS,
+#         'ALWAYS_UPDATE_USER': _ALWAYS_UPDATE_USER,
+#         'USER_ATTR_MAP': _USER_ATTR_MAP,
+#     }
+#
+#     def authenticate_ldap_user(self, ldap_user, password):
+#         print(" - Attempting Authentication as Staff")
+#         self.settings.BIND_DN = f'{ldap_user._username}@wits.ac.za'
+#         self.settings.BIND_PASSWORD = password
+#         try:
+#             username = super(LDAPBackendWitsStaff, self).authenticate_ldap_user(ldap_user, password)
+#         except:
+#             username = None
+#         if username is not None:
+#             print(f" - Authenticated as Staff: {ldap_user._username} ({ldap_user.attrs['sn'][0]}, {ldap_user.attrs['givenName'][0]})")
+#         return username
 

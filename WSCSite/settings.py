@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import ldap3
 
 #ldap
 #import ldap
@@ -133,8 +134,8 @@ DATABASES = {
 
 # Tries these backends in order until one works
 AUTHENTICATION_BACKENDS = (
-    # 'django_auth_ldap.backend.LDAPBackend',
-    # Create Custom backend to use instead of LDAP
+    # 'django_auth_ldap.backend.LDAPBackend',  # Will try ldap first, if it doesn't work will try default backend
+    'utils.witsldapauth.LDAPBackendWitsStudents',  # Should use file as backend... hopefully
     'django.contrib.auth.backends.ModelBackend',
 )
 
