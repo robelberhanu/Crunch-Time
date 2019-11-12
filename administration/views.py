@@ -44,6 +44,7 @@ def create_user(request):
     # User creation
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
+        # username = form.cleaned_data.get('username') # May cause issues
         if form.is_valid():
             form.save(commit=False)
             username = form.cleaned_data.get('username')
@@ -55,15 +56,32 @@ def create_user(request):
             # dob = str(id_number)[:6]
             # raw_password = dob  # Will be changed below
 
-            # Dunno if this is valid
-            # curr_user = CustomUser.objects.create_user(username=username, password=raw_password, email=email, first_name=first_name, last_name=last_name, contact_number=contact_number, id_number=id_number)
+            # If this user exists but has been 'deleted" previously reset is_active to true
+            # if CustomUser.objects.filter(username=username).exists():
+            #     curr_user = CustomUser.objects.filter(username=username)
+            #     if curr_user.is_active:
+            #         print(curr_user.username + " already exists, cannot add")
+            #         messages.error(request, curr_user.username + " already exists, cannot add")
+            #     else:
+            #         curr_user.is_active = True
+            # else:
+            #     pass
+
             curr_user = CustomUser.objects.create_user(username=username)
+            # curr_user = CustomUser.objects.create_user(username=username, password=raw_password, email=email, first_name=first_name, last_name=last_name, contact_number=contact_number, id_number=id_number)
             # curr_user = authenticate(username=username, password=raw_password)
             # basically says that the user has no password - used for custom authentication i.e. LDAP
             # curr_user.set_unusable_password()
             curr_user.save()
             # redirect back to manage_users
             return redirect(manage_users)
+        # elif CustomUser.objects.filter(username=username).exists():
+        #     curr_user = CustomUser.objects.filter(username=username)
+        #     if curr_user.is_active:
+        #         messages.error(request, curr_user.username + " already exists")
+        #     else:
+        #         curr_user.is_active = True
+        #         print(curr_user.username + " re-added")
     else:
         form = CustomUserCreationForm()
     return render(request, 'administration/create_user.html', {'form': form})

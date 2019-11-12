@@ -9,4 +9,5 @@ omit =
     #File isn't used
     WSCSite/middleware/login_required_middleware.py
     #Folder isn't used
-    utils/*
+    utils/ldap_test.py
+    utils/MySQLInterface.py

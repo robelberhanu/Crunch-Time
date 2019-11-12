@@ -21,7 +21,7 @@
                 <a href="{% url 'messageBoardView' %}">Admin Message Board</a>
         <a href="{% url 'manage_clubs' %}">Customise Clubs</a>
         <a href="{% url 'create_user' %}">Add User</a>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'logout' %}">Log Out</a>
     </div>
 
     <form method="post">
@@ -43,7 +43,7 @@
                     <th>Name</th>
                     <th>Email Address</th>
                     <th>Contact No</th>
-                    <th>ID Number</th>
+{#                    <th>ID Number</th>#}
                     <th>Select User</th>
                 </tr>
 
@@ -55,7 +55,7 @@
                         <td> {{ user.first_name }} {{ user.last_name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.contact_number }}</td>
-                        <td>{{ user.id_number }}</td>
+{#                        <td>{{ user.id_number }}</td>#}
                         <td style="vertical-align: middle;">
                             <input type="checkbox" name="selected" id="{{ user.username }}_CheckBox" value={{user.username}} style="width:12px;"/>
                         </td>

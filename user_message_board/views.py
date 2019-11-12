@@ -32,7 +32,7 @@ def MainMessages(request):
     messageBoard = ''
     i = url.find('=')
     if i == -1:
-        messageBoard = "main"
+        messageBoard = "Main"
     else:
         messageBoard = url[i+1:]
 

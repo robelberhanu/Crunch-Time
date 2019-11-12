@@ -78,7 +78,7 @@ def MainMessages(request):
     messageBoard = ''
     i = url.find('=')
     if i == -1:
-        messageBoard = "main"
+        messageBoard = "Main"
     else:
         messageBoard = url[i + 1:]
 
@@ -117,7 +117,7 @@ def SendMessage(request):
             messageBoard = ''
             i = url.find('=')
             if i == -1:
-                messageBoard = "main"
+                messageBoard = "Main"
             else:
                 messageBoard = url[i + 1:]
             message.message_board_name = messageBoard
