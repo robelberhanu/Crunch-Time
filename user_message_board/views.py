@@ -36,9 +36,9 @@ def MainMessages(request):
     else:
         messageBoard = url[i+1:]
 
-    print(messageBoard)
-
     messages = Message.objects.filter(message_board_name=messageBoard)
+
+    print(messages)
 
     return render(request, 'message_board/Main_Message_Board.html', {'messages': messages, 'messageboards': messageBoardNames, 'messageboard': messageBoard})
 
