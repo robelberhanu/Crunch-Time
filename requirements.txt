@@ -9,7 +9,7 @@ django-fluent-contents==2.0.4
 django-fluent-utils==2.0.1
 django-parler==1.9.2
 django-polymorphic==2.0.3
-django-registration==2.4.1
+django-registration==3.1.2
 django-tag-parser==3.1
 django-template-analyzer==1.6.1
 django-widget-tweaks==1.4.3
